@@ -10,6 +10,7 @@ import test from '@/router/modules/test'
 const basePage: RouteRecordRaw[] = [
   {
     path: '/',
+    redirect: '/test',
     component: layout,
     meta: { title: '' },
     children: [...test]

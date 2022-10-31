@@ -4,7 +4,8 @@
 
 <script setup lang="ts"></script>
 
-<style scoped>
+<style scoped lang="scss">
   .p-test {
+    color: $theme;
   }
 </style>

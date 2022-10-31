@@ -12,4 +12,11 @@ export default defineConfig({
       '@c': path.resolve(__dirname, 'src/components')
     }
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "@/assets/styles/entrance.scss";'
+      }
+    }
+  }
 })

@@ -5,7 +5,15 @@ const user = {
     return axios.get('/testA')
   },
   testB(params: any) {
-    return axios.get('/testB', { params })
+    /*
+    *
+    * params = {
+      name: 'abc',
+      age: 18,
+      list: [1, 2, 3]
+    }
+    * */
+    return axios.get('/testB', params)
   },
   testC() {
     return axios.get('/testC')

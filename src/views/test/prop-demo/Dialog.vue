@@ -3,11 +3,11 @@
   <el-dialog
     :model-value="props.dialogVisible"
     :close-on-click-modal="false"
-    title="Tips"
+    title="A"
     width="30%"
     :show-close="false"
   >
-    <span>This is a message</span>
+    <span>{{ props.value }}</span>
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="closeDialog">Cancel</el-button>
@@ -23,16 +23,27 @@
     dialogVisible: {
       type: Boolean,
       default: false
+    },
+    value: {
+      type: String,
+      default: ''
     }
   })
 
-  const emit = defineEmits(['closeDialog'])
+  // const emit = defineEmits(['closeDialog'])
+  const emit = defineEmits(['update:dialogVisible'])
 
   /*const { dialogVisible } = toRefs(props)
   console.log(31, dialogVisible.value)*/
   const closeDialog = () => {
-    emit('closeDialog')
+    console.log('close')
+    emit('update:dialogVisible', false)
+    // emit('closeDialog', false)
   }
+  const testFn = () => {
+    console.log('test111')
+  }
+  defineExpose({ testFn })
 </script>
 
 <style scoped lang="scss">

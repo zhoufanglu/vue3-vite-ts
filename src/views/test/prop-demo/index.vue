@@ -1,26 +1,32 @@
 <template>
   <div class="prop-demo">
-    <el-button @click="openDialog">open-1</el-button>
-    <el-button @click="openDialog">open-2</el-button>
-    <Dialog :dialog-visible="dialogVisible" @closeDialog="closeDialog"></Dialog>
+    <form action="/dolphinscheduler/log/download-log">
+      <button>提交</button>
+    </form>
+    <el-button @click="openDialog('A')">open-1</el-button>
+    <el-button @click="openDialog('B')">open-2</el-button>
+    {{ variables.value }}
+    <Dialog
+      ref="dialogRef"
+      v-model:dialogVisible="variables.visible_A"
+      value:variables.value
+    ></Dialog>
+    <Dialog2 v-model:dialogVisible="variables.visible_B"></Dialog2>
     <!--    <Dialog2 v-model:dialogVisible="dialogVisible"></Dialog2>-->
   </div>
 </template>
 
 <script setup lang="ts">
   import Dialog from './Dialog.vue'
-  // import Dialog2 from './Dialog2.vue'
-
-  import { ref } from 'vue'
-
-  const dialogVisible = ref(false)
-  const inputValue = ref('')
-
-  const openDialog = () => {
-    dialogVisible.value = true
-  }
-  const closeDialog = () => {
-    dialogVisible.value = false
+  import Dialog2 from './Dialog2.vue'
+  import { useDialog } from '@/views/test/prop-demo/useDialog'
+  const { variables } = useDialog()
+  const openDialog = (type: string) => {
+    if (type === 'A') {
+      variables.visible_A = true
+    } else {
+      variables.visible_B = true
+    }
   }
 </script>
 

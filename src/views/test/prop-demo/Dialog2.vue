@@ -2,7 +2,7 @@
   <el-dialog
     :model-value="props.dialogVisible"
     :close-on-click-modal="false"
-    title="22222"
+    title="B"
     width="30%"
     :show-close="false"
   >

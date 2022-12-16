@@ -6,5 +6,9 @@ import pinia from '@/store/index'
 
 const app = createApp(App)
 
-app.use(router).use(pinia)
+// element
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+
+app.use(router).use(pinia).use(ElementPlus)
 app.mount('#app')

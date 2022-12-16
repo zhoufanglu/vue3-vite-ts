@@ -5,6 +5,7 @@
     <button @click="getUserInfo">获取store用户信息</button>
     <button @click="setUserInfo">setStore用户信息</button>
     <div class="drag-div" draggable="true"></div>
+    <longList></longList>
   </div>
 </template>
 
@@ -12,6 +13,7 @@
   import { onMounted } from 'vue'
   import useUserStore from '@/store/users/user'
   import { useRequest } from '@/views/test/useRequest'
+  import longList from '@/views/test/longList/index.vue'
   const { getTest } = useRequest()
   const userStore = useUserStore()
   const clearUserInfo = () => {
@@ -30,7 +32,7 @@
     const moveDoc = document.querySelector('.drag-div') as HTMLElement
   })
 
-  getTest()
+  // getTest()
 </script>
 
 <style scoped lang="scss">

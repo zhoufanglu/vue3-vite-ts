@@ -13,7 +13,6 @@
   import { onMounted } from 'vue'
   import useUserStore from '@/store/users/user'
   import { useRequest } from '@/views/test/useRequest'
-  import longList from '@/views/test/longList/index.vue'
   const { getTest } = useRequest()
   const userStore = useUserStore()
   const clearUserInfo = () => {

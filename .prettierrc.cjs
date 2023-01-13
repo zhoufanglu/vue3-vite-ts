@@ -8,6 +8,6 @@ module.exports = {
   jsxSingleQuote: true,
   arrowParens: 'always',
   htmlWhitespaceSensitivity: 'strict',
-  endOfLine: 'lf',
+  endOfLine: 'auto',
   trailingComma: 'none'
 }

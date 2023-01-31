@@ -28,6 +28,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-vue": "^9.6.0",
+    "lodash": "^4.17.21",
     "path": "^0.12.7",
     "pinia": "^2.0.23",
     "pinia-plugin-persistedstate": "^2.3.0",

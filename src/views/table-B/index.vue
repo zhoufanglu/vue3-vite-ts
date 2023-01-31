@@ -1,9 +1,9 @@
 <template>
-  <div class="p-table-A">
+  <div class="p-table-B">
     table
     <div class="filter-row">
-      <el-input v-model="filters.name" placeholder="名字"></el-input>
-      <el-input v-model="filters.age" placeholder="年龄"></el-input>
+      <el-input v-model="filters.name_b" placeholder="名字"></el-input>
+      <el-input v-model="filters.age_b" placeholder="年龄"></el-input>
       <el-button @click="getTableData(filters)">请求</el-button>
       <el-button @click="resetFilter()">重置</el-button>
     </div>
@@ -23,7 +23,6 @@
       :page-sizes="[10, 20, 30]"
       :total="variables.pagination.total"
     />
-    <!--    @current-change="handleCurrentChange"-->
   </div>
 </template>
 
@@ -32,8 +31,8 @@
   import { useTable } from '@/hooks/table/useTable.ts'
   import api from '@/service/api'
   const filters = reactive({
-    name: 'a',
-    age: null
+    name_b: 'a',
+    age_b: null
   })
   const { variables, getTableData, resetFilter } = useTable(
     api.user.testC,
@@ -44,8 +43,8 @@
   })
 
   /*  const handleCurrentChange = (val) => {
-    // console.log(33, val)
-  }*/
+  // console.log(33, val)
+}*/
 </script>
 
 <style scoped lang="scss">

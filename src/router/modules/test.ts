@@ -4,6 +4,7 @@ const longList_1 = () => import('@/views/longList/longList_1.vue')
 const longList_2 = () => import('@/views/longList/longList_2.vue')
 // 表格hook测试页面
 const tableA = () => import('@/views/table-A/index.vue')
+const tableB = () => import('@/views/table-B/index.vue')
 
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -27,6 +28,10 @@ const test: RouteRecordRaw[] = [
   {
     path: '/table-A',
     component: tableA
+  },
+  {
+    path: '/table-B',
+    component: tableB
   }
 ]
 

@@ -18,18 +18,21 @@
     </el-tab-pane>
   </el-tabs>
   <div style="border: solid 1px green; padding: 20px">
-    <router-view v-slot="{ Component }">
-      <keep-alive>
-        <component :is="Component" :key="editableTabsValue" />
-      </keep-alive>
+    <!--    <router-view v-slot="{ Component }">-->
+    <keep-alive>
+      <component :is="getComponent()" :key="editableTabsValue" />
+    </keep-alive>
+    <!--
     </router-view>
+-->
   </div>
 </template>
 
 <script setup lang="ts">
-  import { ref, watch } from 'vue'
+  import { ref, watch, h } from 'vue'
   import type { TabsPaneContext } from 'element-plus'
   import { useRouter } from 'vue-router'
+  import keepAliveComponent from '../keep-alive-detail/index.vue'
 
   const router = useRouter()
   /*const handleClick = (tab: TabsPaneContext, event: Event) => {
@@ -91,6 +94,18 @@
       path: `/keep-alive-detail/${val}`
     })
   })
+  // 动态生成componentName
+  const getComponent = () => {
+    let component = keepAliveComponent
+    const comName = 'Tab' + editableTabsValue.value
+    console.log(98, comName)
+    component.__name = comName
+    console.log(103, component)
+    return () => h(component)
+    // return h('div', { name: comName }, () => h(component))
+    // component.type.name = comName
+    // return component
+  }
 </script>
 
 <style scoped lang="scss">

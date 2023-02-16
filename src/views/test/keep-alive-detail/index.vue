@@ -4,9 +4,9 @@
   </div>
 </template>
 <script lang="ts">
-  export default {
+  /*export default {
     name: 'TabComponent'
-  }
+  }*/
 </script>
 <script setup lang="ts">
   import { getCurrentInstance, onMounted } from 'vue'

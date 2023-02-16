@@ -5,6 +5,9 @@ const longList_2 = () => import('@/views/longList/longList_2.vue')
 // 表格hook测试页面
 const tableA = () => import('@/views/table-A/index.vue')
 const tableB = () => import('@/views/table-B/index.vue')
+// keep-alive 测试页面
+const keepAlive = () => import('@/views/test/keep-alive/index.vue')
+const keepAliveDetail = () => import('@/views/test/keep-alive-detail/index.vue')
 
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -32,6 +35,16 @@ const test: RouteRecordRaw[] = [
   {
     path: '/table-B',
     component: tableB
+  },
+  {
+    path: '/keep-alive',
+    component: keepAlive,
+    children: [
+      {
+        path: '/keep-alive-detail/:id',
+        component: keepAliveDetail
+      }
+    ]
   }
 ]
 

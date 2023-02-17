@@ -3,11 +3,6 @@
     <el-input v-model="value"></el-input>
   </div>
 </template>
-<script lang="ts">
-  /*export default {
-    name: 'TabComponent'
-  }*/
-</script>
 <script setup lang="ts">
   import { getCurrentInstance, onMounted } from 'vue'
   import { ref } from 'vue'

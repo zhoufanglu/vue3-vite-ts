@@ -7,7 +7,8 @@
     class="demo-tabs"
     @edit="handleTabsEdit"
   >
-    {{ editableTabsValue }}
+    <div> 当前选中:{{ editableTabsValue }} </div>
+    <div> 缓存的组件： {{ bindKeys }} </div>
     <el-tab-pane
       v-for="item in editableTabs"
       :key="item.name"
@@ -18,13 +19,11 @@
     </el-tab-pane>
   </el-tabs>
   <div style="border: solid 1px green; padding: 20px">
-    <!--    <router-view v-slot="{ Component }">-->
-    <keep-alive>
-      <component :is="getComponent()" :key="editableTabsValue" />
-    </keep-alive>
-    <!--
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="renderCom()" :key="editableTabsValue" />
+      </keep-alive>
     </router-view>
--->
   </div>
 </template>
 
@@ -33,6 +32,8 @@
   import type { TabsPaneContext } from 'element-plus'
   import { useRouter } from 'vue-router'
   import keepAliveComponent from '../keep-alive-detail/index.vue'
+  import { useDynamicComponent } from '@/views/test/keep-alive/useDynamicComponent'
+  const { getComponent, comName } = useDynamicComponent()
 
   const router = useRouter()
   /*const handleClick = (tab: TabsPaneContext, event: Event) => {
@@ -88,23 +89,26 @@
   const test1 = ref(null)
   watch(editableTabsValue, (val) => {
     // console.log(85, val)
-    bindKeys.value = editableTabs.value.map((i: any) => i.name)
-    console.log(88, bindKeys.value)
-    router.push({
+    bindKeys.value = editableTabs.value.map((i: any) => `Tab-${i.name}`)
+    comName.value = val
+    /*router.push({
       path: `/keep-alive-detail/${val}`
-    })
+    })*/
   })
-  // 动态生成componentName
-  const getComponent = () => {
-    let component = keepAliveComponent
-    const comName = 'Tab' + editableTabsValue.value
-    console.log(98, comName)
-    component.__name = comName
-    console.log(103, component)
-    return () => h(component)
-    // return h('div', { name: comName }, () => h(component))
-    // component.type.name = comName
-    // return component
+
+  const renderCom = () => {
+    return {
+      render: () => {
+        return h({
+          name: `Tab-${editableTabsValue.value}`,
+          render() {
+            console.log(editableTabsValue.value)
+            return h('span', null, 'ssss')
+            // return this.$slots.default()
+          }
+        })
+      }
+    }
   }
 </script>
 

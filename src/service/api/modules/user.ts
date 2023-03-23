@@ -17,9 +17,7 @@ const user = {
     })
   }*/
   testC(params: any) {
-    return axios.get(
-      `/testC?${qs.stringify(params, { arrayFormat: 'repeat' })}`
-    )
+    return axios.get(`/testC?${qs.stringify(params, { arrayFormat: 'repeat' })}`)
   }
   /*  testC(params: any) {
     return axios.get('/testC', params)

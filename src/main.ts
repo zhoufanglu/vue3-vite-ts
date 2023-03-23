@@ -7,8 +7,17 @@ import pinia from '@/store/index'
 const app = createApp(App)
 
 // element
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
+/*import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'*/
 
-app.use(router).use(pinia).use(ElementPlus)
+// daas-ui
+// @ts-ignore
+import DaasUi from 'daas-ui'
+import 'daas-ui/lib/style.css'
+// import { CardType } from 'daas-ui'
+// ui
+app.use(DaasUi.DaasUi)
+app.use(DaasUi.ElementPlus)
+
+app.use(router).use(pinia)
 app.mount('#app')

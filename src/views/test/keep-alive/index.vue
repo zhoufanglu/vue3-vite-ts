@@ -24,6 +24,7 @@
         <component :is="renderCom()" :key="editableTabsValue" />
       </keep-alive>
     </router-view>
+    <Foo name="sss"></Foo>
   </div>
 </template>
 
@@ -33,6 +34,9 @@
   import { useRouter } from 'vue-router'
   import keepAliveComponent from '../keep-alive-detail/index.vue'
   import { useDynamicComponent } from '@/views/test/keep-alive/useDynamicComponent'
+  import Foo from './OptCom.vue'
+  console.log(37, Foo)
+
   const { getComponent, comName } = useDynamicComponent()
 
   const router = useRouter()

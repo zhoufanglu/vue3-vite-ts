@@ -1,45 +1,42 @@
 <template>
-  <div>
-    <div class=""> keep-alive-test </div>
-    <el-tabs
-      v-model="editableTabsValue"
-      type="card"
-      editable
-      class="demo-tabs"
-      @edit="handleTabsEdit"
+  <div class=""> keep-alive-test </div>
+  <el-tabs
+    v-model="editableTabsValue"
+    type="card"
+    editable
+    class="demo-tabs"
+    @edit="handleTabsEdit"
+  >
+    <div> 当前选中:{{ editableTabsValue }} </div>
+    <div> 缓存的组件： {{ bindKeys }} </div>
+    <el-tab-pane
+      v-for="item in editableTabs"
+      :key="item.name"
+      :label="item.title"
+      :name="item.name"
     >
-      <div> 当前选中:{{ editableTabsValue }} </div>
-      <div> 缓存的组件： {{ bindKeys }} </div>
-      <el-tab-pane
-        v-for="item in editableTabs"
-        :key="item.name"
-        :label="item.title"
-        :name="item.name"
-      >
-        <!--      {{ item.content }}-->
-      </el-tab-pane>
-    </el-tabs>
-    <!--  <div style="border: solid 1px green; padding: 20px">
-      <router-view v-slot="{ Component }">
-        <keep-alive>
-          <component :is="renderRouterCom(Component)" :key="editableTabsValue" />
-        </keep-alive>
-      </router-view>
-    </div>-->
-    <div style="border: solid 1px red">
-      <h4>测试动态渲染component</h4>
-      <component :is="renderCom()"></component>
-    </div>
+      <!--      {{ item.content }}-->
+    </el-tab-pane>
+  </el-tabs>
+  <div style="border: solid 1px green; padding: 20px">
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="renderCom()" :key="editableTabsValue" />
+      </keep-alive>
+    </router-view>
+    <Foo name="sss"></Foo>
   </div>
 </template>
 
 <script setup lang="ts">
-  import testCom from './testCom.vue'
-  import { ref, watch, h, resolveComponent } from 'vue'
+  import { ref, watch, h } from 'vue'
+  import type { TabsPaneContext } from 'element-plus'
   import { useRouter } from 'vue-router'
   import keepAliveComponent from '../keep-alive-detail/index.vue'
   import { useDynamicComponent } from '@/views/test/keep-alive/useDynamicComponent'
-  import { divide } from 'lodash'
+  import Foo from './OptCom.vue'
+  console.log(37, Foo)
+
   const { getComponent, comName } = useDynamicComponent()
 
   const router = useRouter()
@@ -98,40 +95,13 @@
     // console.log(85, val)
     bindKeys.value = editableTabs.value.map((i: any) => `Tab-${i.name}`)
     comName.value = val
-    router.push({
+    /*router.push({
       path: `/keep-alive-detail/${val}`
-    })
+    })*/
   })
 
   const renderCom = () => {
-    return h('div', null, {
-      default: () => h('div', null, 'aa'),
-      name: 'test'
-    })
-    /*return {
-      render() {
-        return h('div', null, {
-          default: () => h(testCom),
-          name: 'test'
-        })
-      }
-    }*/
-
-    /*console.log(103, keepAliveComponent)
-    const test = resolveComponent('keepAliveComponent')
-    return h(test)*/
-    /*return h(
-      {
-        name: `Tab-${editableTabsValue.value}`,
-        render() {
-          //return this.$slots.default()
-          //return () => {}
-        }
-      },
-      null,
-      'aaa'
-    )*/
-    /*return {
+    return {
       render: () => {
         return h({
           name: `Tab-${editableTabsValue.value}`,
@@ -142,13 +112,7 @@
           }
         })
       }
-    }*/
-  }
-
-  const renderRouterCom = (com: any) => {
-    com.ctx.ctx.name = 'test'
-    console.log(114, com.ctx)
-    return com
+    }
   }
 </script>
 

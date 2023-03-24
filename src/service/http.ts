@@ -23,6 +23,7 @@ const err = (err: AxiosError): Promise<AxiosError> => {
   return Promise.reject(err)
 }
 /**********************请求拦截器***********************/
+// @ts-ignore
 service.interceptors.request.use(async (config: AxiosRequestConfig<any>) => {
   // token
   const token = 'mytoken'

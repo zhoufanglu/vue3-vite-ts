@@ -38,5 +38,6 @@ module.exports = {
     'vue/require-valid-default-prop': 'off',
     'no-console': 'off',
     'vue/no-setup-props-destructure': 'off'
-  }
+  },
+  globals: { defineOptions: 'writable' }
 }

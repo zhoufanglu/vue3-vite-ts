@@ -6,7 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "eslint": "eslint --ext .js,.jsx,.ts,.tsx,.vue src",
+    "lint": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "daas-ui": "^0.0.15",
@@ -29,6 +37,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-vue": "^9.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
     "lodash": "^4.17.21",
     "path": "^0.12.7",
     "pinia": "^2.0.23",
@@ -43,5 +53,8 @@
     "vue-eslint-parser": "^9.1.0",
     "vue-router": "^4.1.6",
     "vue-tsc": "^0.40.4"
+  },
+  "lint-staged": {
+    "src/**": "eslint"
   }
 }

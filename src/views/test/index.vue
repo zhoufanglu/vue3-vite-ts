@@ -15,7 +15,7 @@
   import type { Menu } from 'daas-ui/lib/packages/side-bar/types'
 
   //test
-  import { onMounted, ref } from 'vue'
+  import { onMounted, reactive, ref } from 'vue'
   import useUserStore from '@/store/users/user'
   import { useRequest } from '@/views/test/useRequest'
   const { getTest } = useRequest()
@@ -89,6 +89,10 @@
   ])
 
   // getTest()
+  const testRef = ref('aa')
+  const testReactive = reactive({ name: 'aaa' })
+  console.log(93, testRef)
+  console.log(94, testReactive)
 </script>
 
 <style scoped lang="scss">

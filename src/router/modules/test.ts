@@ -8,6 +8,8 @@ const tableB = () => import('@/views/table-B/index.vue')
 // keep-alive 测试页面
 const keepAlive = () => import('@/views/test/keep-alive/index.vue')
 const keepAliveDetail = () => import('@/views/test/keep-alive-detail/index.vue')
+// 双向绑定测试
+const vModel = () => import('@/views/vModel/index.vue')
 
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -35,6 +37,10 @@ const test: RouteRecordRaw[] = [
   {
     path: '/table-B',
     component: tableB
+  },
+  {
+    path: '/vModule',
+    component: vModel
   },
   {
     path: '/keep-alive',

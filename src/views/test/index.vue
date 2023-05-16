@@ -13,7 +13,8 @@
 
 <script setup lang="ts">
   import type { Menu } from 'daas-ui/lib/packages/side-bar/types'
-
+  import api from '@/service/api'
+  api.user.testB()
   //test
   import { onMounted, reactive, ref } from 'vue'
   import useUserStore from '@/store/users/user'

@@ -2,10 +2,7 @@ import { reactive, ref, watch, Ref } from 'vue'
 import { sleep } from '@/tools'
 import { pick } from 'lodash'
 
-const useTable = <ItemType extends Object>(
-  listRequestFn: Function,
-  filters?: object
-) => {
+const useTable = <ItemType extends Object>(listRequestFn: Function, filters?: object) => {
   const variables = reactive({
     loading: false,
     color: 'red',

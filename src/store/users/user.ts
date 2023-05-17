@@ -6,13 +6,13 @@ const useUserStore = defineStore({
   id: 'user',
   state: (): UserState => ({
     userInfo: {},
-    token: ''
+    token: '',
   }),
   actions: {
     setUserInfo(userInfo: UserInfo | {}) {
       this.userInfo = userInfo
-    }
-  }
+    },
+  },
 })
 
 export default useUserStore

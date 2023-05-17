@@ -21,8 +21,8 @@
   const props = defineProps({
     dialogVisible: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   })
 
   const emit = defineEmits(['update:dialogVisible'])

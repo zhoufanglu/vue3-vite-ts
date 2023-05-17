@@ -13,8 +13,8 @@ const basePage: RouteRecordRaw[] = [
     redirect: '/test',
     component: layout,
     meta: { title: '' },
-    children: [...test]
-  }
+    children: [...test],
+  },
 ]
 
 const routes = [...basePage]

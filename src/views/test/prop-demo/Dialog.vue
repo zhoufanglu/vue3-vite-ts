@@ -22,12 +22,12 @@
   const props = defineProps({
     dialogVisible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     value: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   })
 
   // const emit = defineEmits(['closeDialog'])

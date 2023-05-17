@@ -14,8 +14,8 @@
   const props = defineProps({
     value: {
       type: String as PropType<string>,
-      default: ''
-    }
+      default: '',
+    },
   })
   console.log(20, props)
   const onChange = (e: any) => {

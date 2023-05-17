@@ -15,6 +15,6 @@ export function useDynamicComponent() {
   }
   return {
     getComponent,
-    comName
+    comName,
   }
 }

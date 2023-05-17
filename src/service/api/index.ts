@@ -4,7 +4,7 @@
 // 动态加载模块
 const ms = import.meta.glob('./modules/*.ts', {
   eager: true,
-  import: 'default'
+  import: 'default',
 })
 const modules: any = {}
 
@@ -14,6 +14,6 @@ Object.keys(ms).forEach((key) => {
 })
 // 导出接口
 export default {
-  ...modules
+  ...modules,
   // ……
 }

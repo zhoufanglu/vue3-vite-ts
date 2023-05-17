@@ -53,8 +53,7 @@
     transform: scale(0.5);
     pointer-events: none; /* 防止点击触发 */
     box-sizing: border-box;
-    @media screen and (min-device-pixel-ratio: 3),
-      (-webkit-min-device-pixel-ratio: 3) {
+    @media screen and (min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 3) {
       width: 300%;
       height: 300%;
       -webkit-transform: scale(0.33);
@@ -99,8 +98,7 @@
     transform: scale(0.5);
     pointer-events: none; /* 防止点击触发 */
     box-sizing: border-box;
-    @media screen and (min-device-pixel-ratio: 3),
-      (-webkit-min-device-pixel-ratio: 3) {
+    @media screen and (min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 3) {
       width: 300%;
       height: 300%;
       -webkit-transform: scale(0.33);
@@ -141,14 +139,10 @@
 
 @font-face {
   font-family: 'iconfont'; /* Project id 2826909 */
-  src: url('//at.alicdn.com/t/font_2826909_mln4k95g9ve.woff2?t=1648627451648')
-      format('woff2'),
-    url('//at.alicdn.com/t/font_2826909_mln4k95g9ve.woff?t=1648627451648')
-      format('woff'),
-    url('//at.alicdn.com/t/font_2826909_mln4k95g9ve.ttf?t=1648627451648')
-      format('truetype'),
-    url('//at.alicdn.com/t/font_2826909_mln4k95g9ve.svg?t=1648627451648#iconfont')
-      format('svg');
+  src: url('//at.alicdn.com/t/font_2826909_mln4k95g9ve.woff2?t=1648627451648') format('woff2'),
+    url('//at.alicdn.com/t/font_2826909_mln4k95g9ve.woff?t=1648627451648') format('woff'),
+    url('//at.alicdn.com/t/font_2826909_mln4k95g9ve.ttf?t=1648627451648') format('truetype'),
+    url('//at.alicdn.com/t/font_2826909_mln4k95g9ve.svg?t=1648627451648#iconfont') format('svg');
 }
 
 .iconfont {

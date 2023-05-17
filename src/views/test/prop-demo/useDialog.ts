@@ -4,7 +4,7 @@ const useDialog = () => {
   const variables = reactive({
     visible_A: false,
     visible_B: false,
-    value: 'AAAAAAAAAA'
+    value: 'AAAAAAAAAA',
   })
   return { variables }
 }

@@ -28,7 +28,7 @@
   import api from '@/service/api'
   const filters = reactive({
     name_b: 'a',
-    age_b: null
+    age_b: null,
   })
   const { variables, getTableData, resetFilter } = useTable(api.user.testB, filters)
 

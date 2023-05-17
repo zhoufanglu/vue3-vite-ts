@@ -10,8 +10,8 @@ const useTable = <ItemType extends Object>(listRequestFn: Function, filters?: ob
     pagination: {
       curPage: 1,
       total: 20,
-      pageSize: 10
-    }
+      pageSize: 10,
+    },
   })
 
   // 获取列表数据
@@ -21,7 +21,7 @@ const useTable = <ItemType extends Object>(listRequestFn: Function, filters?: ob
       // 分页数据
       ...pick(variables.pagination, ['curPage', 'pageSize']),
       // 过滤数据
-      ...filters
+      ...filters,
     }
     const { data } = await listRequestFn(params)
     // 做一些赋值
@@ -52,7 +52,7 @@ const useTable = <ItemType extends Object>(listRequestFn: Function, filters?: ob
   return {
     variables,
     getTableData,
-    resetFilter
+    resetFilter,
   }
 }
 

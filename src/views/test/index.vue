@@ -30,7 +30,7 @@
   const setUserInfo = () => {
     userStore.setUserInfo({
       username: 'lfz',
-      age: 18
+      age: 18,
     })
   }
   onMounted(() => {
@@ -48,16 +48,16 @@
           path: '/progress-lib',
           icon: '&#xe682;',
           isCollect: true,
-          activeMenu: 'progress-lib'
+          activeMenu: 'progress-lib',
         },
         {
           name: '我的任务',
           path: '/my-task',
           icon: '&#xe005;',
           isCollect: true,
-          activeMenu: 'my-task'
-        }
-      ]
+          activeMenu: 'my-task',
+        },
+      ],
     },
     {
       name: '流程中心',
@@ -69,24 +69,24 @@
           path: '/type-manage',
           icon: '&#xe004;',
           isCollect: true,
-          activeMenu: 'type-manage'
+          activeMenu: 'type-manage',
         },
         {
           name: '模型管理',
           path: '/model-manage',
           icon: '&#xe002;',
           isCollect: true,
-          activeMenu: 'model-manage'
+          activeMenu: 'model-manage',
         },
         {
           name: '表单管理',
           path: '/form-manage',
           icon: '&#xe003;',
           isCollect: false,
-          activeMenu: 'form-manage'
-        }
-      ]
-    }
+          activeMenu: 'form-manage',
+        },
+      ],
+    },
   ])
 
   // getTest()

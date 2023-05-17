@@ -4,7 +4,7 @@ import qs from 'qs'
 const service = axios.create({
   delayed: true,
   baseURL: `${import.meta.env.VITE_APP_WEB_URL}/`,
-  timeout: 10000
+  timeout: 10000,
   /*  paramsSerializer: {
     /!*    encode: (params) => {
       console.log(params)

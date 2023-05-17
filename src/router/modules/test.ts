@@ -16,31 +16,31 @@ import type { RouteRecordRaw } from 'vue-router'
 const test: RouteRecordRaw[] = [
   {
     path: '/longList_1',
-    component: longList_1
+    component: longList_1,
   },
   {
     path: '/longList_2',
-    component: longList_2
+    component: longList_2,
   },
   {
     path: '/test',
-    component: testHome
+    component: testHome,
   },
   {
     path: '/prop-demo',
-    component: propDemo
+    component: propDemo,
   },
   {
     path: '/table-A',
-    component: tableA
+    component: tableA,
   },
   {
     path: '/table-B',
-    component: tableB
+    component: tableB,
   },
   {
     path: '/vModule',
-    component: vModel
+    component: vModel,
   },
   {
     path: '/keep-alive',
@@ -48,10 +48,10 @@ const test: RouteRecordRaw[] = [
     children: [
       {
         path: '/keep-alive-detail/:id',
-        component: keepAliveDetail
-      }
-    ]
-  }
+        component: keepAliveDetail,
+      },
+    ],
+  },
 ]
 
 export default test

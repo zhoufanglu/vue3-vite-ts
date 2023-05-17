@@ -10,8 +10,8 @@
   defineProps({
     menus: {
       type: Array as PropType<any[]>,
-      default: () => []
-    }
+      default: () => [],
+    },
   })
 </script>
 

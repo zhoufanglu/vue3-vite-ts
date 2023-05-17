@@ -16,7 +16,7 @@
     rowHeight: 20, // 每行高度 20px
     renderNums: 0, // 渲染个数
     rowStartIndex: 0, // 渲染开始的第一项索引
-    rowEndIndex: 0 // 渲染结束的最后一项索引
+    rowEndIndex: 0, // 渲染结束的最后一项索引
   })
 
   const mockData = () => {

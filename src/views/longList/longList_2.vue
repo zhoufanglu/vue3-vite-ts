@@ -19,7 +19,7 @@
     rowHeight: 20, // 每行高度 20px
     renderNums: 0, // 渲染个数
     rowStartIndex: 0, // 渲染开始的第一项索引
-    rowEndIndex: 0 // 渲染结束的最后一项索引
+    rowEndIndex: 0, // 渲染结束的最后一项索引
   })
 
   const mockData = () => {
@@ -33,10 +33,7 @@
     // variables.rowEndIndex = variables.rowStartIndex + variables.renderNums
     console.log(variables.rowStartIndex + '---' + getRowEndIndex.value)
     // 起点不会超过数组的最大值-显示的个数
-    if (
-      variables.rowStartIndex >=
-      variables.list.length - variables.renderNums
-    ) {
+    if (variables.rowStartIndex >= variables.list.length - variables.renderNums) {
       variables.rowStartIndex = variables.list.length - variables.renderNums
     }
   }
@@ -47,19 +44,14 @@
   })
 
   const getDisplayList = computed(() => {
-    console.log(
-      47,
-      variables.list.slice(variables.rowStartIndex, getRowEndIndex.value)
-    )
+    console.log(47, variables.list.slice(variables.rowStartIndex, getRowEndIndex.value))
     return variables.list.slice(variables.rowStartIndex, getRowEndIndex.value)
   })
 
   const blankBoxPadding = computed(() => {
     return {
       paddingTop: variables.rowStartIndex * variables.rowHeight + 'px',
-      paddingBottom:
-        (variables.list.length - getRowEndIndex.value) * variables.rowHeight +
-        'px'
+      paddingBottom: (variables.list.length - getRowEndIndex.value) * variables.rowHeight + 'px',
     }
   })
 

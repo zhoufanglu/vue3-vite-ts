@@ -13,9 +13,9 @@
           console.log(13, this)
           return h('span', null, 'ssss')
           // return this.$slots.default()
-        }
+        },
       })
-    }
+    },
   }
 </script>
 

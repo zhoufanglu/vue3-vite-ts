@@ -51,13 +51,13 @@
     {
       title: 'Tab 1',
       name: '1',
-      content: 'Tab 1 content'
+      content: 'Tab 1 content',
     },
     {
       title: 'Tab 2',
       name: '2',
-      content: 'Tab 2 content'
-    }
+      content: 'Tab 2 content',
+    },
   ])
 
   const handleTabsEdit = (targetName: string, action: 'remove' | 'add') => {
@@ -67,7 +67,7 @@
       editableTabs.value.push({
         title: 'Tab 3',
         name: '3',
-        content: 'Tab 3'
+        content: 'Tab 3',
       })
       // editableTabsValue.value = newTabName
       editableTabsValue.value = '3'
@@ -109,9 +109,9 @@
             console.log(editableTabsValue.value)
             return h('span', null, 'ssss')
             // return this.$slots.default()
-          }
+          },
         })
-      }
+      },
     }
   }
 </script>

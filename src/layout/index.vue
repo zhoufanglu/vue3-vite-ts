@@ -3,9 +3,18 @@
     <div class="nav-bar">
       <nav-bar></nav-bar>
     </div>
-    <div class="side-bar">
-      <side-bar></side-bar>
-    </div>
+    <section>
+      <div class="side-bar">
+        <side-bar></side-bar>
+      </div>
+      <div class="content">
+        <router-view v-slot="{ Component, route }">
+          <transition name="el-fade-in" mode="out-in">
+            <component :is="Component" :key="route.fullPath" />
+          </transition>
+        </router-view>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -24,7 +33,18 @@
     .nav-bar {
       height: 40px;
       width: 100%;
-      border-bottom: solid 1px red;
+      background-color: #eeeeee;
+    }
+    section {
+      height: calc(100vh - 40px);
+      width: 100%;
+
+      display: flex;
+      flex-direction: row;
+      .content {
+        padding: 20px;
+        width: 100%;
+      }
     }
   }
 </style>

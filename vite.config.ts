@@ -15,7 +15,10 @@ export default ({ mode, command }: ConfigEnv) => {
       vue(),
       DefineOptions(),
       vueSetupExtend(),
-      AutoImport({ imports: ['vue', 'vue-router', 'pinia'] }),
+      AutoImport({
+        imports: ['vue', 'vue-router', 'pinia'],
+        dts: 'src/auto-import.d.ts', // 生成 `auto-import.d.ts` 全局声明
+      }),
     ],
     resolve: {
       alias: {

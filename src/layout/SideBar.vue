@@ -1,5 +1,5 @@
 <template>
-  <div class="side-bar">
+  <div class="d-side-bar">
     <ds-side-bar
       v-model:menus="menus"
       :is-show-drawer="false"
@@ -10,63 +10,38 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+  import test from '@/router/modules/test'
+  console.log(15, test)
+  const menuChildren = test.map((r) => {
+    return {
+      name: r.path,
+      path: r.path,
+      icon: '&#xe682;',
+      isCollect: true,
+      activeMenu: r.path,
+    }
+  })
   // menus已与组件双向绑定
   const menus = ref([
     {
-      name: '流程门户',
+      name: 'test',
       path: '/',
       icon: '',
-      children: [
-        {
-          name: '流程库',
-          path: '/progress-lib',
-          icon: '&#xe682;',
-          isCollect: true,
-          activeMenu: 'progress-lib',
-        },
-        {
-          name: '我的任务',
-          path: '/my-task',
-          icon: '&#xe682;',
-          isCollect: true,
-          activeMenu: 'my-task',
-        },
-      ],
-    },
-    {
-      name: '流程中心',
-      path: '/',
-      icon: '',
-      children: [
-        {
-          name: '类型管理',
-          path: '/type-manage',
-          icon: '&#xe682;',
-          isCollect: true,
-          activeMenu: 'type-manage',
-        },
-        {
-          name: '模型管理',
-          path: '/model-manage',
-          icon: '&#xe682;',
-          isCollect: true,
-          activeMenu: 'model-manage',
-        },
-        {
-          name: '表单管理',
-          path: '/form-manage',
-          icon: '&#xe682;',
-          isCollect: false,
-          activeMenu: 'form-manage',
-        },
-      ],
+      children: menuChildren,
     },
   ])
-  const handleMenuClick = () => {}
+  const router = useRouter()
+  const handleMenuClick = (menu: any) => {
+    console.log(36, menu)
+    router.push(menu.path)
+  }
 </script>
 
 <style scoped lang="scss">
-  .side-bar {
+  .d-side-bar {
+    .side-bar {
+      height: 100vh;
+    }
   }
 </style>

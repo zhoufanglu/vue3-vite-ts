@@ -7,11 +7,7 @@
       <el-button @click="getTableData(filters)">请求</el-button>
       <el-button @click="resetFilter()">重置</el-button>
     </div>
-    <el-table
-      v-loading="variables.loading"
-      :data="variables.list"
-      style="width: 100%"
-    >
+    <el-table v-loading="variables.loading" :data="variables.list" style="width: 100%">
       <el-table-column prop="name" label="Name" width="180" />
       <el-table-column prop="age" label="Age" />
     </el-table>
@@ -34,13 +30,7 @@
     name_b: 'a',
     age_b: null
   })
-  const { variables, getTableData, resetFilter } = useTable(
-    api.user.testC,
-    filters
-  )
-  onMounted(() => {
-    getTableData(filters)
-  })
+  const { variables, getTableData, resetFilter } = useTable(api.user.testB, filters)
 
   /*  const handleCurrentChange = (val) => {
   // console.log(33, val)

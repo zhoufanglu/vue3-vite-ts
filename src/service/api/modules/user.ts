@@ -1,20 +1,23 @@
 import axios from '@/service/http'
 import qs from 'qs'
+import { sleep } from '@/tools'
 
 const user = {
   testA() {
     return axios.get('/testA')
   },
   testB(params: any) {
-    return axios({
-      url: 'http://192.168.129.134:9002/data-auth/file/data/authorize/template/export?pkgId=1651838038727036929',
-      method: 'get',
-      responseType: 'blob',
-      headers: {
-        'Content-Type': 'application/json',
-        'Gw-Authorization-Rt': 'c4bf023f-4e58-454a-9d9b-fecd02f21bc2',
-        'Cm-Authorization': 'c4bf023f-4e58-454a-9d9b-fecd02f21bc2'
-      }
+    return new Promise((resolve, reject) => {
+      sleep(500).then(() => {
+        resolve({
+          data: [
+            { name: 'a', age: 18 },
+            { name: 'b', age: 18 },
+            { name: 'c', age: 18 },
+          ],
+          total: 3,
+        })
+      })
     })
   },
   /*  testB(params: any) {
@@ -30,7 +33,7 @@ const user = {
   }*/
   testC(params: any) {
     return axios.get(`/testC?${qs.stringify(params, { arrayFormat: 'repeat' })}`)
-  }
+  },
   /*  testC(params: any) {
     return axios.get('/testC', params)
   }*/

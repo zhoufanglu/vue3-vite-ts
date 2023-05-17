@@ -1,4 +1,5 @@
 module.exports = {
+  printWidth: 100,
   useTabs: false,
   semi: false,
   vueIndentScriptAndStyle: true,
@@ -9,5 +10,5 @@ module.exports = {
   arrowParens: 'always',
   htmlWhitespaceSensitivity: 'strict',
   endOfLine: 'auto',
-  trailingComma: 'none'
+  trailingComma: 'all',
 }

@@ -1,3 +1,5 @@
+import type { Ref } from 'vue'
+
 interface PaginationType {
   pageNo: number
   pageSize: number

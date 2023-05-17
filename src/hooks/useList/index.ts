@@ -14,7 +14,7 @@ const useList = <ItemType>(listRequestFn: any, options: OptionsType<ItemType> = 
     immediate = true,
   } = options
   // 定义抛出的变量
-  const listVariables = reactive<ListVariablesType<ItemType>>({
+  const listVariables: ListVariablesType<ItemType> = reactive({
     loading: false,
     list: [],
     pagination: {
@@ -23,7 +23,6 @@ const useList = <ItemType>(listRequestFn: any, options: OptionsType<ItemType> = 
       pageSize: 10,
     },
   })
-
   const getListData = async () => {
     listVariables.loading = true
     const params = {
@@ -38,9 +37,7 @@ const useList = <ItemType>(listRequestFn: any, options: OptionsType<ItemType> = 
       preRequest?.()
       // 格式化一下数据
       // TODO: 返回类型怎么玩
-      // listVariables.list = transformFn ? transformFn(data) : data
-      // @ts-ignore
-      listVariables.list = data
+      listVariables.list = transformFn ? transformFn(data) : data
       listVariables.loading = false
       listVariables.pagination.total = total
     } catch (e: any) {

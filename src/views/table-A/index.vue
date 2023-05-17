@@ -1,6 +1,6 @@
 <template>
   <div class="p-table-A">
-    table
+    table---a
     <div class="filter-row">
       <el-input v-model="filters.name" placeholder="名字"></el-input>
       <el-input v-model="filters.age" placeholder="年龄"></el-input>

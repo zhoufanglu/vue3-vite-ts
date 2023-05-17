@@ -22,7 +22,7 @@ const user = {
   },
   /*  testB(params: any) {
     return axios.get('/testB', params)
-  },*/
+  }, */
   /*  testC(params: any) {
     console.log(222, params)
     return axios({
@@ -30,13 +30,13 @@ const user = {
       method: 'get',
       params
     })
-  }*/
+  } */
   testC(params: any) {
     return axios.get(`/testC?${qs.stringify(params, { arrayFormat: 'repeat' })}`)
   },
   /*  testC(params: any) {
     return axios.get('/testC', params)
-  }*/
+  } */
 }
 
 export default user

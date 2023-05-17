@@ -5,13 +5,13 @@ export function useDynamicComponent() {
   const comName = ref('1')
 
   function getComponent() {
-    /*const wrapper = {
+    /* const wrapper = {
       name: 'Tab-' + comName.value,
       render() {
         return this.$slots.default()
       }
-    }*/
-    //return () => h('div', null, 11)
+    } */
+    // return () => h('div', null, 11)
   }
   return {
     getComponent,

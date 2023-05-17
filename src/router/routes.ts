@@ -1,8 +1,5 @@
 import type { RouteRecordRaw } from 'vue-router'
-
-const layout = () => import('@/views/layout/index.vue')
-
-import test from '@/router/modules/test'
+const layout = () => import('@/layout/index.vue')
 
 /**
  * 基础路由
@@ -10,10 +7,10 @@ import test from '@/router/modules/test'
 const basePage: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/test',
+    // redirect: '/index',
     component: layout,
     meta: { title: '' },
-    children: [...test],
+    children: [],
   },
 ]
 

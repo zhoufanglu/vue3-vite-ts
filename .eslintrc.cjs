@@ -36,7 +36,18 @@ module.exports = {
     'vue/component-definition-name-casing': 'off',
     'vue/require-valid-default-prop': 'off',
     'no-console': 'off',
-    'vue/no-setup-props-destructure': 'off'
+    'vue/no-setup-props-destructure': 'off',
+    'spaced-comment': ['error', 'always', {
+      line: {
+        markers: ['/'],
+        exceptions: ['/', '#'],
+      },
+      block: {
+        markers: ['!'],
+        exceptions: ['*'],
+        balanced: true,
+      },
+    }]
   },
   globals: { defineOptions: 'writable' }
 }

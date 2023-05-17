@@ -27,7 +27,7 @@ export default ({ mode, command }: ConfigEnv) => {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "@/assets/styles/entrance.scss";',
+          additionalData: '@import "@/assets/styles/index.scss";',
         },
       },
     },

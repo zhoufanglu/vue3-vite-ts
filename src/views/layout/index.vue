@@ -9,6 +9,5 @@
 
 <style scoped lang="css">
   .p-layout {
-    border: solid 1px red;
   }
 </style>

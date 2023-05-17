@@ -40,11 +40,11 @@
   const { getComponent, comName } = useDynamicComponent()
 
   const router = useRouter()
-  /*const handleClick = (tab: TabsPaneContext, event: Event) => {
+  /* const handleClick = (tab: TabsPaneContext, event: Event) => {
     router.push({
       path: `/keep-alive-detail/${tab.props.name}`
     })
-  }*/
+  } */
   let tabIndex = 2
   const editableTabsValue = ref('1')
   const editableTabs = ref([
@@ -95,9 +95,9 @@
     // console.log(85, val)
     bindKeys.value = editableTabs.value.map((i: any) => `Tab-${i.name}`)
     comName.value = val
-    /*router.push({
+    /* router.push({
       path: `/keep-alive-detail/${val}`
-    })*/
+    }) */
   })
 
   const renderCom = () => {

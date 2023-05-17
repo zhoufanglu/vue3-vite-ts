@@ -40,7 +40,7 @@
     set(value: boolean) {
       emit('update:dialogVisible', value)
     }
-  })*/
+  }) */
 </script>
 
 <style scoped lang="scss">

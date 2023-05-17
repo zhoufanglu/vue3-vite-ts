@@ -8,9 +8,9 @@
   import { ref, watch } from 'vue'
   import ChildCom from '@/views/test/prop-demo/ChildCom.vue'
   const value = ref()
-  /*watch(value, (val) => {
+  /* watch(value, (val) => {
     console.log(12, val)
-  })*/
+  }) */
   const changeFn = (val: any) => {
     console.log(15, val)
     console.log('---', value.value)

@@ -12,7 +12,7 @@ const service = axios.create({
     }*!/
     // serialize: (params, options)
     indexes: null
-  }*/
+  } */
 } as AxiosRequestConfig)
 
 const err = (err: AxiosError): Promise<AxiosError> => {
@@ -22,7 +22,7 @@ const err = (err: AxiosError): Promise<AxiosError> => {
 
   return Promise.reject(err)
 }
-/**********************请求拦截器***********************/
+/** ********************请求拦截器***********************/
 // @ts-ignore
 service.interceptors.request.use(async (config: AxiosRequestConfig<any>) => {
   // token
@@ -32,7 +32,7 @@ service.interceptors.request.use(async (config: AxiosRequestConfig<any>) => {
   return config
 }, err)
 
-/**********************响应拦截器***********************/
+/** ********************响应拦截器***********************/
 service.interceptors.response.use((res: AxiosResponse) => {
   return res.data
 }, err)

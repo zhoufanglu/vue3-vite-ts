@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-
+import router from '@/router'
 import { UserType } from '@/store/users/type'
 
 const useUserStore = defineStore({
@@ -12,8 +12,14 @@ const useUserStore = defineStore({
     setUserInfo(userInfo: UserType | {}) {
       this.userInfo = userInfo
     },
-    setIsRemember(isRemember: boolean) {
-      this.isRemember = isRemember
+    async logout() {
+      // 清除缓token
+      this.setUserInfo({
+        username: this.userInfo.username,
+        password: this.userInfo.password,
+        token: '',
+      })
+      router.push('/login')
     },
   },
   persist: true, // 数据持久化存储

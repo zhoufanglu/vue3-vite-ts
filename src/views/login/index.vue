@@ -1,6 +1,5 @@
 <script setup lang="ts">
-  import type { CheckboxValueType, FormInstance, FormRules } from 'element-plus'
-  import { ElMessage } from 'element-plus'
+  import type { FormInstance, FormRules } from 'element-plus'
   import useUserStore from '@/store/users/user'
   import { UserFormType } from '@/views/login/typs'
 

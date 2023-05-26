@@ -29,7 +29,7 @@ $theme-map: null;
 }*/
 
 
-//字体颜色
+//换肤函数
 @mixin themify() {
   // 将main-themes中规则放入theme-map
   @each $theme-name, $map in $main-themes {

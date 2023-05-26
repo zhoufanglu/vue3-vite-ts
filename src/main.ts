@@ -13,5 +13,4 @@ import 'element-plus/dist/index.css'
 // @ts-ignore
 import DaasUi from 'daas-ui'
 import 'daas-ui/lib/style.css'
-// ui
 app.use(DaasUi.DaasUi).use(ElementPlus).use(router).use(pinia).mount('#app')

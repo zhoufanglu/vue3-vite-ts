@@ -1,11 +1,7 @@
-interface UserInfo {
+interface UserType {
   username?: string
-  age?: Number
+  password?: string
+  token?: string
 }
 
-interface UserState {
-  userInfo: UserInfo
-  token: string
-}
-
-export type { UserState, UserInfo }
+export type { UserType }

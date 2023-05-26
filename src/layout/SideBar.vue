@@ -2,7 +2,7 @@
   <div class="d-side-bar">
     <ds-side-bar
       v-model:menus="menus"
-      :is-show-drawer="false"
+      :is-show-drawer="true"
       custom-class="side-bar"
       drawer-custom-class="drawer-custom-class"
       @handle-menu-click="handleMenuClick"
@@ -32,9 +32,9 @@
     },
   ])
   const router = useRouter()
-  const handleMenuClick = (menu: any) => {
+  const handleMenuClick = async (menu: any) => {
     console.log(36, menu)
-    router.push(menu.path)
+    await router.push(menu.path)
   }
 </script>
 
@@ -43,5 +43,12 @@
     .side-bar {
       height: 100vh;
     }
+  }
+</style>
+<style lang="scss">
+  .drawer-custom-class {
+    height: calc(100% - var(--nav-bar-height));
+    margin-left: calc(var(--side-width) - 1px);
+    top: var(--nav-bar-height) !important;
   }
 </style>

@@ -1,4 +1,12 @@
-@charset "UTF-8";
+/* -------------css变量----------------- */
+:root {
+  --nav-bar-height: 48px;
+  --side-width: 68px;
+  --cache-bar-height: 46px;
+  --theme-color: #5386ed;
+  --el-font-weight-primary: 300 !important;
+  --color-default: #303133;
+}
 @mixin vertical-center {
   // 垂直水平居中
   display: flex;

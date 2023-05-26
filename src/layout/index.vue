@@ -31,18 +31,19 @@
     display: flex;
     flex-direction: column;
     .nav-bar {
-      height: 40px;
+      height: var(--nav-bar-height);
       width: 100%;
       background-color: #eeeeee;
     }
     section {
-      height: calc(100vh - 40px);
+      height: calc(100vh - var(--nav-bar-height));
       width: 100%;
 
       display: flex;
       flex-direction: row;
       .content {
-        padding: 20px;
+        overflow: hidden;
+        padding: 0;
         width: 100%;
       }
     }

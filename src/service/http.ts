@@ -1,10 +1,12 @@
 import axios, { AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios'
 import qs from 'qs'
+import useUserStore from '@/store/users/index'
+import { ElMessage } from 'element-plus'
 
 const service = axios.create({
   delayed: true,
   baseURL: `${import.meta.env.VITE_APP_WEB_URL}/`,
-  timeout: 10000,
+  timeout: 5000,
   /*  paramsSerializer: {
     /!*    encode: (params) => {
       console.log(params)
@@ -15,26 +17,41 @@ const service = axios.create({
   } */
 } as AxiosRequestConfig)
 
-const err = (err: AxiosError): Promise<AxiosError> => {
-  if (err.response?.status === 401 || err.response?.status === 504) {
-    // 注销
-  }
-
-  return Promise.reject(err)
-}
 /** ********************请求拦截器***********************/
 // @ts-ignore
-service.interceptors.request.use(async (config: AxiosRequestConfig<any>) => {
-  // token
-  const token = 'mytoken'
-  // eslint-disable-next-line no-unused-expressions,no-param-reassign
-  token && (config.headers!.token = token)
-  return config
-}, err)
+service.interceptors.request.use(
+  async (config) => {
+    const userStore = useUserStore()
+    // token
+    const token = userStore.userInfo.token
+    token && (config.headers!.token = token)
+    return config
+  },
+  (error) => {
+    return Promise.reject(error)
+  },
+)
 
 /** ********************响应拦截器***********************/
-service.interceptors.response.use((res: AxiosResponse) => {
-  return res.data
-}, err)
+service.interceptors.response.use(
+  (res: AxiosResponse) => {
+    return res.data
+  },
+  (error) => {
+    switch (error?.response?.status) {
+      case 401:
+        ElMessage.error('登录失效,请重新登录')
+        break
+      case 403:
+        break
+      case 500:
+        ElMessage.error(error?.response?.data?.message || '服务出错')
+        break
+      default:
+        ElMessage.error(error?.response?.data?.message || '服务出错')
+    }
+    return Promise.reject(error)
+  },
+)
 
 export default service

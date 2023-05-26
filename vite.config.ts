@@ -17,6 +17,7 @@ export default ({ mode, command }: ConfigEnv) => {
       vueSetupExtend(),
       AutoImport({
         imports: ['vue', 'vue-router', 'pinia'],
+        dirs: ['src/stores'], // 好像只能影射一层
         dts: 'src/auto-import.d.ts', // 生成 `auto-import.d.ts` 全局声明
       }),
     ],

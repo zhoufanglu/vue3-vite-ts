@@ -1,7 +1,8 @@
 <script setup lang="ts">
   import type { FormInstance, FormRules } from 'element-plus'
-  import useUserStore from '@/store/users/user'
-  import { UserFormType } from '@/views/login/typs'
+  import useUserStore from '@/store/users/index'
+  import type { UserFormType } from '@/views/login/types'
+  import { login as loginApi } from '@/service/api/modules/users'
 
   const userStore = useUserStore()
   const router = useRouter()
@@ -26,6 +27,12 @@
       if (valid) {
         // handle success
         const { username, password } = loginForm.value
+        loading.value = true
+        await loginApi({
+          username,
+          password,
+        })
+        loading.value = false
         userStore.setUserInfo({
           username: username,
           password,

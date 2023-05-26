@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import useUserStore from '@/store/users/user'
+  import useUserStore from '@/store/users/index'
   const router = useRouter()
 
   const userStore = useUserStore()

@@ -15,6 +15,7 @@
 </script>
 <script setup lang="ts">
   import { ref, onMounted } from 'vue'
+  import useUserStore from '@/store/users'
   const theme = ref('light')
   onMounted(() => {
     switchTheme('light')

@@ -5,6 +5,8 @@ import * as path from 'path'
 import DefineOptions from 'unplugin-vue-define-options/vite'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import AutoImport from 'unplugin-auto-import/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import Components from 'unplugin-vue-components/vite'
 
 // https://vitejs.dev/config/
 export default ({ mode, command }: ConfigEnv) => {
@@ -17,8 +19,16 @@ export default ({ mode, command }: ConfigEnv) => {
       vueSetupExtend(),
       AutoImport({
         imports: ['vue', 'vue-router', 'pinia'],
-        dirs: ['src/stores'], // 好像只能影射一层
+        dirs: ['src/stores/**/index.ts', 'src/tools'],
         dts: 'src/auto-import.d.ts', // 生成 `auto-import.d.ts` 全局声明
+        resolvers: [
+          // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
+          ElementPlusResolver(),
+        ],
+        vueTemplate: true, // 是否在 vue 模板中自动导入
+      }),
+      Components({
+        dirs: ['src/components', 'src/**/components'],
       }),
     ],
     resolve: {

@@ -1,5 +1,6 @@
 <template>
   <div class="long-list">
+    <h4>虚拟列表</h4>
     <ul ref="containRef" @scroll="handleScroll">
       <div class="blank-box" :style="blankBoxPadding">
         <!--        <li v-for="(i, index) in variables.list" :key="index">{{ index }}</li>-->

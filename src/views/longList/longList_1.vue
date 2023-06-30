@@ -1,6 +1,8 @@
 <template>
   <div class="long-list">
-    <ul ref="containRef" @scroll="handleScroll">
+    <!--自然渲染-->
+    <h4>平常列表</h4>
+    <ul ref="containRef">
       <li v-for="(i, index) in variables.list" :key="index">{{ index }}</li>
     </ul>
   </div>

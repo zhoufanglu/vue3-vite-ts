@@ -6,7 +6,7 @@ import { ElMessage } from 'element-plus'
 const service = axios.create({
   delayed: true,
   baseURL: `${import.meta.env.VITE_APP_WEB_URL}/`,
-  timeout: 5000,
+  timeout: 50000,
   /*  paramsSerializer: {
     /!*    encode: (params) => {
       console.log(params)

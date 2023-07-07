@@ -5,12 +5,15 @@
     <ul ref="containRef">
       <li v-for="(i, index) in variables.list" :key="index">{{ index }}</li>
     </ul>
+    <el-button @click="logoutFn">注销测试</el-button>
   </div>
 </template>
 
 <script setup lang="ts">
   import { ref, reactive, onMounted, computed } from 'vue'
+  import useUserStore from '@/store/users'
 
+  const userStore = useUserStore()
   const containRef = ref<any>('')
   const variables = reactive({
     list: [] as any[],
@@ -22,9 +25,13 @@
   })
 
   const mockData = () => {
-    variables.list = Array.from({ length: 100000 }, (v, k) => k)
+    variables.list = Array.from({ length: 10 }, (v, k) => k)
   }
   mockData()
+
+  const logoutFn = async () => {
+    await userStore.logout()
+  }
 </script>
 
 <style scoped lang="scss">

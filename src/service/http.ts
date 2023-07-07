@@ -1,12 +1,11 @@
 import axios, { AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios'
-import qs from 'qs'
 import useUserStore from '@/store/users/index'
 import { ElMessage } from 'element-plus'
 
 const service = axios.create({
   delayed: true,
   baseURL: `${import.meta.env.VITE_APP_WEB_URL}/`,
-  timeout: 50000,
+  timeout: 10000,
   /*  paramsSerializer: {
     /!*    encode: (params) => {
       console.log(params)

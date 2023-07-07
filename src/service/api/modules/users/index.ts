@@ -15,3 +15,11 @@ export function login(params: UserFormType): any {
     params,
   })
 }
+
+export function logout(params: any): any {
+  return axios({
+    url: '/logout',
+    method: 'get',
+    params,
+  })
+}

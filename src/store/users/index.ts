@@ -1,7 +1,6 @@
-import { defineStore } from 'pinia'
-import router from '@/router'
-import { UserType } from '@/store/users/type'
 import { logout as logoutApi } from '@/service/api/modules/users'
+import { defineStore } from 'pinia'
+import { UserType } from '@/store/users/type'
 const useUserStore = defineStore({
   id: 'userInfo',
   state: () => ({
@@ -26,4 +25,4 @@ const useUserStore = defineStore({
   persist: true, // 数据持久化存储
 })
 
-export default useUserStore
+export { useUserStore }

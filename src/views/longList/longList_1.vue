@@ -11,7 +11,6 @@
 
 <script setup lang="ts">
   import { ref, reactive, onMounted, computed } from 'vue'
-  import useUserStore from '@/store/users'
 
   const userStore = useUserStore()
   const containRef = ref<any>('')

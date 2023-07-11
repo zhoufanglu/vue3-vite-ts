@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios'
-import useUserStore from '@/store/users/index'
+import { useUserStore } from '@/store/users'
 import { ElMessage } from 'element-plus'
 
 const service = axios.create({

@@ -14,6 +14,7 @@
   }
 </script>
 <script setup lang="ts">
+  import { testZYDApi } from '@/service/api/modules/users'
   import { ref, onMounted } from 'vue'
   const theme = ref('light')
   onMounted(() => {
@@ -22,6 +23,9 @@
   const switchTheme = (val: string) => {
     document.querySelector('body')!.setAttribute('data-theme', val)
   }
+  testZYDApi({}).then((res: any) => {
+    console.log(res)
+  })
 </script>
 
 <style scoped lang="scss">

@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios'
 import { useUserStore } from '@/store/users'
 import { ElMessage } from 'element-plus'
-
+console.log(4, import.meta.env.MODE)
 const service = axios.create({
   delayed: true,
   baseURL: `${import.meta.env.VITE_APP_WEB_URL}/`,

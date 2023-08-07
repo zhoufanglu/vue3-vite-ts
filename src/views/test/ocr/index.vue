@@ -4,7 +4,14 @@
   import { Plus } from '@element-plus/icons-vue'
   import { useOcr } from '@/views/test/ocr/useOcr'
   import type { UploadProps } from 'element-plus'
+  import { setStringProp } from '@/utils/props'
+  import { Props } from './props'
 
+  /* const prop = defineProps({
+    name: setStringProp('name'),
+  }) */
+  const prop = defineProps(Props)
+  // console.log(14, prop.name)
   const { discernImg, renderText } = useOcr()
 
   /** ********************图片上传***********************/
@@ -28,6 +35,12 @@
 </script>
 <template>
   <div class="p-ocr">
+    <el-tooltip
+      trigger="click"
+      content="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      >dsdsds</el-tooltip
+    >
+    {{ ocrName }}
     <el-upload
       class="avatar-uploader"
       action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"

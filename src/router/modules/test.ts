@@ -12,6 +12,7 @@ const keepAliveDetail = () => import('@/views/test/keep-alive-detail/index.vue')
 const vModel = () => import('@/views/test/vModel/index.vue')
 const studyTs = () => import('@/views/test/study-ts/index.vue')
 const ocr = () => import('@/views/test/ocr/index.vue')
+const iframe = () => import('@/views/test/iframe/index.vue')
 
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -51,6 +52,10 @@ const test: RouteRecordRaw[] = [
   {
     path: '/ocr',
     component: ocr,
+  },
+  {
+    path: '/iframe',
+    component: iframe,
   },
   {
     path: '/keep-alive',

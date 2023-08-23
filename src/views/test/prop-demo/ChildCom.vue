@@ -1,5 +1,6 @@
 <template>
-  <div class="child-com">
+  <div class="child-com" @click="props.onClick(false)">
+    ？？？
     <select @change="onChange">
       <option value="1" label="1"></option>
       <option value="2" label="2"></option>
@@ -15,6 +16,9 @@
     value: {
       type: String as PropType<string>,
       default: '',
+    },
+    onClick: {
+      type: Function as PropType<(val: boolean) => boolean>,
     },
   })
   console.log(20, props)

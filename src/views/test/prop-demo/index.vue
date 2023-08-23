@@ -1,11 +1,12 @@
 <template>
   <div class="prop-demo">
-    <ChildCom v-model:value="value" @update:value="changeFn"></ChildCom>
+    {{ computedTest }}
+    <ChildCom v-model:value="value" :on-click="onClick" @update:value="changeFn"></ChildCom>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { ref, watch } from 'vue'
+  import { ref, shallowRef, watch } from 'vue'
   import ChildCom from '@/views/test/prop-demo/ChildCom.vue'
   const value = ref()
   /* watch(value, (val) => {
@@ -15,6 +16,15 @@
     console.log(15, val)
     console.log('---', value.value)
   }
+  const onClick = (val: boolean) => {
+    console.log(val)
+    children.value.splice(1, 1)
+  }
+  // computed test
+  const children = ref([1, 2, 3])
+  const computedTest = computed(() => {
+    return children.value.map((item) => item * 2)
+  })
 </script>
 
 <style scoped lang="scss">

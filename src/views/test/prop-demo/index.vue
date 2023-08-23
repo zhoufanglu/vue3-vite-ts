@@ -2,10 +2,13 @@
   <div class="prop-demo">
     {{ computedTest }}
     <ChildCom v-model:value="value" :on-click="onClick" @update:value="changeFn"></ChildCom>
+    <h1>签名</h1>
+    <Signature></Signature>
   </div>
 </template>
 
 <script setup lang="ts">
+  import Signature from '@/views/test/prop-demo/Signature.vue'
   import { ref, shallowRef, watch } from 'vue'
   import ChildCom from '@/views/test/prop-demo/ChildCom.vue'
   const value = ref()

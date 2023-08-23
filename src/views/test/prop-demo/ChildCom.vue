@@ -1,6 +1,5 @@
 <template>
   <div class="child-com" @click="props.onClick(false)">
-    ？？？
     <select @change="onChange">
       <option value="1" label="1"></option>
       <option value="2" label="2"></option>

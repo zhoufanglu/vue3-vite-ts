@@ -13,6 +13,7 @@ const vModel = () => import('@/views/test/vModel/index.vue')
 const studyTs = () => import('@/views/test/study-ts/index.vue')
 const ocr = () => import('@/views/test/ocr/index.vue')
 const iframe = () => import('@/views/test/iframe/index.vue')
+const waterCss = () => import('@/views/test/water-css/index.vue')
 
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -56,6 +57,10 @@ const test: RouteRecordRaw[] = [
   {
     path: '/iframe',
     component: iframe,
+  },
+  {
+    path: '/water-css',
+    component: waterCss,
   },
   {
     path: '/keep-alive',

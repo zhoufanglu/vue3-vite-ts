@@ -29,5 +29,6 @@
 
 <style scoped lang="scss">
   .child-com {
+    border: solid 1px red;
   }
 </style>

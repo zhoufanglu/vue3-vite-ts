@@ -15,7 +15,7 @@
 
 <script lang="js">
   import WaterRipple from './waterRipple'
-  import waterBg from './img.png'
+  import waterBg from './img_2.png'
   console.log(19, WaterRipple)
   export default {
     data() {

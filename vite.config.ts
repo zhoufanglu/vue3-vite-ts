@@ -7,6 +7,8 @@ import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import AutoImport from 'unplugin-auto-import/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
+// @ts-ignore
+import testPlugin from './build/test'
 
 // https://vitejs.dev/config/
 export default ({ mode, command }: ConfigEnv) => {
@@ -35,6 +37,7 @@ export default ({ mode, command }: ConfigEnv) => {
         include: [/\.vue$/, /\.vue\?vue/],
         dirs: ['src/components', 'src/**/components'],
       }),
+      testPlugin(),
     ],
     resolve: {
       alias: {

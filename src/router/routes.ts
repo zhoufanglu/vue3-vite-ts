@@ -1,6 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 const layout = () => import('@/layout/index.vue')
 const login = () => import('@/views/login/index.vue')
+const page1024 = () => import('@/views/1024/index.vue')
 import errorPage from '@/router/modules/error-page'
 import test from '@/router/modules/test'
 
@@ -18,6 +19,10 @@ const basePage: RouteRecordRaw[] = [
   {
     path: '/login',
     component: login,
+  },
+  {
+    path: '/1024',
+    component: page1024,
   },
 ]
 

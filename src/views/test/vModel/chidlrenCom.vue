@@ -1,7 +1,7 @@
 <template>
   <div class="child-com">
-    <el-input v-model="searchForm.name" placeholder="name"></el-input>
-    <el-input v-model="searchForm.age" placeholder="age"></el-input>
+    <!--    <el-input v-model="searchForm.name" placeholder="name"></el-input>
+    <el-input v-model="searchForm.age" placeholder="age"></el-input>-->
   </div>
 </template>
 
@@ -23,10 +23,10 @@
     },
   }) */
 
-  const searchForm = defineModel<SearchTypes>('searchForm', {
+  /*  const searchForm = defineModel<SearchTypes>('searchForm', {
     required: true,
   })
-  console.log(27, searchForm.value)
+  console.log(27, searchForm.value) */
 </script>
 
 <style scoped lang="scss">

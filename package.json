@@ -13,6 +13,7 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
     "tesseract.js": "^4.1.1",
+    "three": "^0.157.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {

@@ -39,6 +39,8 @@
 
   const { getComponent, comName } = useDynamicComponent()
 
+  const includes = ['Tab-1', 'Tab-2']
+
   const router = useRouter()
   /* const handleClick = (tab: TabsPaneContext, event: Event) => {
     router.push({
@@ -87,6 +89,7 @@
 
       editableTabsValue.value = activeName
       editableTabs.value = tabs.filter((tab) => tab.name !== targetName)
+      includes.splice(0, 1)
     }
   }
   const bindKeys = ref(['1', '2'])
@@ -107,7 +110,8 @@
           name: `Tab-${editableTabsValue.value}`,
           render() {
             console.log(editableTabsValue.value)
-            return h('span', null, 'ssss')
+            // return h('span', null, 'ssss')
+            return h('input')
             // return this.$slots.default()
           },
         })

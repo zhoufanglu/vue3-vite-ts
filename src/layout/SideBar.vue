@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
   import test from '@/router/modules/test'
-  console.log(15, test)
+  // console.log(15, test)
   const menuChildren = test.map((r) => {
     return {
       name: r.path,

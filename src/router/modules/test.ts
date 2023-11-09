@@ -11,6 +11,8 @@ const keepAliveDetail = () => import('@/views/test/keep-alive-detail/index.vue')
 // 双向绑定测试
 const vModel = () => import('@/views/test/vModel/index.vue')
 const studyTs = () => import('@/views/test/study-ts/index.vue')
+// echarts
+const echarts = () => import('@/views/test/echarts/index.vue')
 
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -46,6 +48,10 @@ const test: RouteRecordRaw[] = [
   {
     path: '/study-ts',
     component: studyTs,
+  },
+  {
+    path: '/echarts',
+    component: echarts,
   },
   {
     path: '/keep-alive',

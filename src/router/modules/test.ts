@@ -13,6 +13,7 @@ const vModel = () => import('@/views/test/vModel/index.vue')
 const studyTs = () => import('@/views/test/study-ts/index.vue')
 // echarts
 const echarts = () => import('@/views/test/echarts/index.vue')
+const loadComponents = () => import('@/views/test/load-components/index.vue')
 
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -52,6 +53,10 @@ const test: RouteRecordRaw[] = [
   {
     path: '/echarts',
     component: echarts,
+  },
+  {
+    path: '/load-components',
+    component: loadComponents,
   },
   {
     path: '/keep-alive',

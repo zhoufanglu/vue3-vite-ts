@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  console.log('D')
+</script>
 <template>
   <div class="p-test"> D</div>
 </template>

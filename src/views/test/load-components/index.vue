@@ -1,7 +1,4 @@
 <script setup lang="ts">
-  import A from './A.vue'
-  import B from './B.vue'
-
   // 异步加载组件函数
   const loadComponent = (name: string) =>
     defineAsyncComponent({
@@ -9,15 +6,21 @@
       delay: 2000,
     })
 
-  // 需要加载组件的名称列表
-  const componentNames = ['C', 'D']
+  // 所有组件的名称
+  const componentNames = ['A', 'B', 'C', 'D']
+  // 所有组件存的数组
+  const components = componentNames.map((name) => {
+    return {
+      name,
+      component: loadComponent(name),
+    }
+  })
+  // 需要动态加载的组件名称
+  const dynamicComponentName = ['C', 'D']
+  // 默认显示的组件名称[], 划到底部后， 从组件名称里面拿出一个，添加到此数组里面
+  const displayComponents = ref(['A', 'B'])
 
-  let loadedComponent: any = ref([A, B]) // 已经加载的组件
-  let components = componentNames.map((name) => loadComponent(name)) // 还需要加载的组件
-
-  /** ********************滚动监视器***********************/
-  onMounted(() => {})
-
+  /** ********************滚动***********************/
   // 开始观察滚动触发元素
   const contentRef = ref()
 
@@ -25,28 +28,30 @@
     const container = contentRef.value
     // 判断是否滚动到底部
     if (container.scrollTop + container.clientHeight >= container.scrollHeight) {
-      loadNextComponent()
       console.log('滚到底部了， 开始加载')
-    }
-  }
-
-  function loadNextComponent() {
-    // 获取需要添加的组件，添加完毕后删除此组件
-    const nextComponent = components.shift()
-    if (nextComponent) {
-      loadedComponent.value.push(nextComponent)
+      if (dynamicComponentName.length) {
+        displayComponents.value.push(dynamicComponentName.shift()!)
+      }
     }
   }
 </script>
 <template>
   <div ref="contentRef" class="load-component" @scroll="handleScroll">
-    <component :is="{ ...i }" v-for="(i, index) in loadedComponent" :key="index" />
+    {{ displayComponents }}
+    <template v-for="(i, index) in components" :key="index">
+      <component :is="i.component" v-if="displayComponents.includes(i.name)" />
+    </template>
+    <!--    <component :is="{ ...i }" v-for="(i, index) in loadedComponent" :key="index" />-->
   </div>
 </template>
 
 <style scoped lang="scss">
   .load-component {
     height: 100%;
-    overflow-y: auto;
+    overflow-y: scroll;
+    .fix-btn {
+      position: fixed;
+      top: 0;
+    }
   }
 </style>

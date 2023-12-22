@@ -1,9 +1,10 @@
 <script setup lang="ts">
   // 异步加载组件函数
+  import AnimateTab from '@/components/AnimateTab.vue'
+
   const loadComponent = (name: string) =>
     defineAsyncComponent({
       loader: () => import(`./${name}.vue`),
-      delay: 2000,
     })
 
   // 所有组件的名称
@@ -17,10 +18,10 @@
   })
   // 需要动态加载的组件名称
   const dynamicComponentName = ['C', 'D']
-  // 默认显示的组件名称[], 划到底部后， 从组件名称里面拿出一个，添加到此数组里面
+  // 默认加载的组件名称[], 划到底部后， 从组件名称里面拿出一个，添加到此数组里面
   const displayComponents = ref(['A', 'B'])
 
-  /** ********************滚动***********************/
+  /** ********************监控滚动***********************/
   // 开始观察滚动触发元素
   const contentRef = ref()
 
@@ -38,6 +39,7 @@
 <template>
   <div ref="contentRef" class="load-component" @scroll="handleScroll">
     {{ displayComponents }}
+    <AnimateTab />
     <template v-for="(i, index) in components" :key="index">
       <component :is="i.component" v-if="displayComponents.includes(i.name)" />
     </template>

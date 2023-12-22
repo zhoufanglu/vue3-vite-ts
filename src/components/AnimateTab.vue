@@ -32,10 +32,10 @@
     bindKey: '', // 这个跟tab的value对应
   })
   /** ********************Event***********************/
-  const handleMouseover = (e: Event, key: string) => {
+  const handleMouseenter = (e: Event, key: string) => {
     setPositionByElement(e.currentTarget as HTMLElement, 'hover', key)
   }
-  const handleMouseout = () => {
+  const handleMouseleave = () => {
     hoverElObj.opacity = '0'
   }
   const handleClick = (e: Event, key: string) => {
@@ -51,6 +51,12 @@
     element.left = `${position.left}px`
     element.bindKey = key
   }
+
+  onMounted(() => {
+    // ?默认选中第一个
+    setPositionByElement(document.querySelector('#A') as HTMLElement, 'click')
+  })
+
   // ?获取元素相对于父元素的位置
   function getElementPosition(element: HTMLElement) {
     const rect = element.getBoundingClientRect()
@@ -62,11 +68,6 @@
       left: rect.left - parentRect.left,
     }
   }
-
-  onMounted(() => {
-    // ?默认选中第一个
-    setPositionByElement(document.querySelector('#A') as HTMLElement, 'click')
-  })
 </script>
 <template>
   <ul class="animate-tab">
@@ -88,8 +89,8 @@
       :id="i.label"
       :key="i.value"
       class="tab"
-      @mouseenter.stop.prevent="handleMouseover($event, i.value)"
-      @mouseleave.stop.prevent="handleMouseout"
+      @mouseenter.stop.prevent="handleMouseenter($event, i.value)"
+      @mouseleave.stop.prevent="handleMouseleave"
       @click.capture="handleClick($event, i.value)"
     >
       <span>{{ i.label }}</span>
@@ -102,7 +103,6 @@
     position: relative;
     border: none;
     border-radius: 10em;
-    display: flex;
     list-style: none;
     background: #f5f5f5;
     box-shadow: 20px 40px 40px #00000033;

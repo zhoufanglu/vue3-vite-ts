@@ -14,6 +14,7 @@ const studyTs = () => import('@/views/test/study-ts/index.vue')
 // echarts
 const echarts = () => import('@/views/test/echarts/index.vue')
 const loadComponents = () => import('@/views/test/load-components/index.vue')
+const scroll = () => import('@/views/test/scroll/index.vue')
 
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -67,6 +68,10 @@ const test: RouteRecordRaw[] = [
         component: keepAliveDetail,
       },
     ],
+  },
+  {
+    path: '/scroll',
+    component: scroll,
   },
 ]
 

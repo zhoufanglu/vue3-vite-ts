@@ -42,7 +42,8 @@
       display: flex;
       flex-direction: row;
       .content {
-        overflow: hidden;
+        // overflow: hidden;
+        overflow-y: auto;
         padding: 0;
         width: 100%;
       }

@@ -15,6 +15,7 @@ const studyTs = () => import('@/views/test/study-ts/index.vue')
 const echarts = () => import('@/views/test/echarts/index.vue')
 const loadComponents = () => import('@/views/test/load-components/index.vue')
 const scroll = () => import('@/views/test/scroll/index.vue')
+const tableTest = () => import('@/views/test/table-test/index.vue')
 
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -72,6 +73,10 @@ const test: RouteRecordRaw[] = [
   {
     path: '/scroll',
     component: scroll,
+  },
+  {
+    path: '/table-test',
+    component: tableTest,
   },
 ]
 

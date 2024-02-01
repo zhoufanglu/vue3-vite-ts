@@ -14,7 +14,7 @@
   }
 </script>
 <script setup lang="ts">
-  import { ref, onMounted } from 'vue'
+  import { ref, onMounted, onBeforeMount } from 'vue'
   const theme = ref('light')
   onMounted(() => {
     switchTheme('light')

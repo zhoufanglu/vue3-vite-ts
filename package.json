@@ -11,6 +11,7 @@
     "lint": "lint-staged"
   },
   "dependencies": {
+    "vite-plugin-create-env-config-file": "^1.0.9",
     "vue": "^3.3.4"
   },
   "devDependencies": {

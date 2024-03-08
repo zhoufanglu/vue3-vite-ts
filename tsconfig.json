@@ -18,6 +18,6 @@
     },
     "types": ["unplugin-vue-define-options/macros-global" /* ... */]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.ts"],
+  //"references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,5 +1,7 @@
 <template>
   <div class="ds-switch-theme" :data-theme="theme">
+    <!--?环境变量-->
+    <div>环境变量-{{ envUrl }}</div>
     <el-radio-group v-model="theme" @change="switchTheme">
       <el-radio label="light" size="large">浅色</el-radio>
       <el-radio label="dark" size="large">深色</el-radio>
@@ -22,6 +24,8 @@
   const switchTheme = (val: string) => {
     document.querySelector('body')!.setAttribute('data-theme', val)
   }
+  // 环境变量
+  const envUrl = import.meta.env.VITE_APP_WEB_URL
 </script>
 
 <style scoped lang="scss">

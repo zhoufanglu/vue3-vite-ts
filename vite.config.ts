@@ -7,7 +7,8 @@ import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import AutoImport from 'unplugin-auto-import/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
-
+import vitePluginCreateEnvConfigFile from 'vite-plugin-create-env-config-file/src/index.mjs'
+console.log(11, vitePluginCreateEnvConfigFile)
 // https://vitejs.dev/config/
 export default ({ mode, command }: ConfigEnv) => {
   const env = loadEnv(mode, process.cwd()) // 获取.env文件里定义的环境变量
@@ -15,6 +16,9 @@ export default ({ mode, command }: ConfigEnv) => {
     base: './',
     plugins: [
       vue(),
+      vitePluginCreateEnvConfigFile({
+        configPath: '/public/config.js',
+      }),
       DefineOptions(),
       vueSetupExtend(),
       AutoImport({

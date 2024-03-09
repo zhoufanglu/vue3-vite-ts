@@ -45,7 +45,7 @@ const test: RouteRecordRaw[] = [
     component: tableB,
   },
   {
-    path: '/vModule',
+    path: '/vModel',
     component: vModel,
   },
   {

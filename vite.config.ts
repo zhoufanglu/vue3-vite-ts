@@ -15,7 +15,7 @@ export default ({ mode, command }: ConfigEnv) => {
   return defineConfig({
     base: './',
     plugins: [
-      vue(),
+      vue({ script: { defineModel: true } }),
       vitePluginCreateEnvConfigFile({
         configPath: '/public/config.js',
       }),
@@ -56,6 +56,7 @@ export default ({ mode, command }: ConfigEnv) => {
     },
     server: {
       host: '0.0.0.0',
+      port: 9009,
     },
     build: {
       sourcemap: false,

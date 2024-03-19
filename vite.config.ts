@@ -14,7 +14,7 @@ export default ({ mode, command }: ConfigEnv) => {
   return defineConfig({
     base: './',
     plugins: [
-      vue(),
+      vue({ script: { defineModel: true } }),
       DefineOptions(),
       vueSetupExtend(),
       AutoImport({

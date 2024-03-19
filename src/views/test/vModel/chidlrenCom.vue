@@ -1,11 +1,19 @@
 <template>
   <div class="child-com">
+    <el-input v-model="searchForm"></el-input>
+    <button @click="handleClick">change</button>
     <!--    <el-input v-model="searchForm.name" placeholder="name"></el-input>
     <el-input v-model="searchForm.age" placeholder="age"></el-input>-->
   </div>
 </template>
 
 <script setup lang="ts">
+  const searchForm = defineModel<any>('searchForm', {
+    required: true,
+  })
+  const handleClick = () => {
+    searchForm.value = 'change'
+  }
   import type { SearchTypes } from '@/views/test/vModel/types'
   /* const emit = defineEmits(['update:searchForm'])
   const props = defineProps({

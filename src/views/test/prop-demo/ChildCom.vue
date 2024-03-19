@@ -5,6 +5,7 @@
       <option value="2" label="2"></option>
       <option value="3" label="3"></option>
     </select>
+    <el-button @click="$router.push('/test?name=aaa')">go test</el-button>
   </div>
 </template>
 

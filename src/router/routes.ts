@@ -3,7 +3,6 @@ const layout = () => import('@/layout/index.vue')
 const login = () => import('@/views/login/index.vue')
 import errorPage from '@/router/modules/error-page'
 import test from '@/router/modules/test'
-
 /**
  * 基础路由
  */

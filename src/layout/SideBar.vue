@@ -22,6 +22,7 @@
       activeMenu: r.path,
     }
   })
+  console.log(25, menuChildren)
   // menus已与组件双向绑定
   const menus = ref([
     {

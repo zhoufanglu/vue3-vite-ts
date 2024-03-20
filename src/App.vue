@@ -1,13 +1,6 @@
 <script setup lang="ts">
   /** ********************监听浏览器刷新***********************/
-  // window.confirm('确定要关闭吗？')
-  /* function closeIt() {
-    console.log('xx------------')
-    return 'sss'
-    // return 'Any string value here forces a dialog box to \n' + 'appear before closing the window.'
-  }
-  window.onbeforeunload = closeIt */
-  let isClosing = false
+  /* let isClosing = false
 
   window.addEventListener('beforeunload', beforeUnloadListener, { capture: true })
 
@@ -24,7 +17,7 @@
     event.preventDefault()
     localStorage.setItem('event', 'close')
     return event.returnValue
-  }
+  } */
 </script>
 
 <template>

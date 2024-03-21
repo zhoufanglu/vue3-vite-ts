@@ -3,30 +3,20 @@
   const loadList = ref<any>([])
   const observerElement = ref<HTMLElement | null>(null)
   onMounted(() => {
-    const cards = document.querySelectorAll('.card')
-    console.log(7, observerElement.value)
     let observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // ?目标元素刚出现在根元素可视区时返回 true；目标元素从根元素可视区消失返回 false；
-          // switchCard(entry.target as HTMLElement, entry.isIntersecting)
-          // ? 加载过后就不需要再次监听改变
           /**
            * isIntersecting
            * 0 表示目标元素完全不可见。
            * 1 表示目标元素完全可见。
            * 0~1 表示目标元素部分可见
            */
-          /* if (entry.isIntersecting) {
-            console.log('完全可见')
-            // observer.unobserve(entry.target)
-          } */
-          if (entry.intersectionRatio > 0) {
-            // switchCard(entry.target as HTMLElement, true)
+          console.log(15, entry.intersectionRatio)
+          if (entry.intersectionRatio >= 0) {
             console.log('进入可视区域')
-            lodeMore()
+            loadMore()
           } else {
-            // switchCard(entry.target as HTMLElement, false)
             console.log('不可见')
           }
         })
@@ -36,18 +26,12 @@
       },
     )
     observer.observe(observerElement.value!)
-    /* cards.forEach((card) => {
-      observer.observe(card)
-    }) */
   })
 
-  const switchCard = (target: HTMLElement, visible: boolean) => {
-    target.classList.toggle('show', visible)
-  }
-  const lodeMore = () => {
+  const loadMore = () => {
     console.log('------')
-    if (loadList.value.length >= 30) {
-      console.log('已经满30条了')
+    if (loadList.value.length >= 100) {
+      console.log('已经满100条了')
       return
     }
     loadList.value.push(...requestList.value)
@@ -55,8 +39,10 @@
 </script>
 <template>
   <div class="p-scroll">
-    <div v-for="(i, index) in loadList" :key="index" class="card">{{ i }}</div>
-    <div ref="observerElement" class="observer-element"></div>
+    <!--?列表区域-->
+    <div v-for="(i, index) in loadList" :key="index" class="card">{{ i }} -- {{ index }}</div>
+    <!--?IntersectionObserver监听的对象-->
+    <div ref="observerElement" class="observer-element">监听的dom</div>
   </div>
 </template>
 
@@ -69,10 +55,12 @@
     padding: 50px;
     box-sizing: border-box;
     .card {
-      display: inline-block;
       height: 200px;
       border: solid 1px blue;
-      @include vertical-center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      //@include vertical-center;
       font-size: 30px;
       // transform: translateX(100px);
       transition: 500ms;
@@ -85,6 +73,10 @@
     }
     .observer-element {
       border: solid 1px green;
+      background: green;
+      color: white;
+      font-size: 20px;
+      height: 100px;
     }
   }
 </style>

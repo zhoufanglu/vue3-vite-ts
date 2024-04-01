@@ -15,7 +15,7 @@
           console.log(15, entry.intersectionRatio)
           if (entry.intersectionRatio >= 0) {
             console.log('进入可视区域')
-            loadMore()
+            // loadMore()
           } else {
             console.log('不可见')
           }

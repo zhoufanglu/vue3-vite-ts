@@ -36,6 +36,25 @@
   const switchTheme = (val: string) => {
     document.querySelector('body')!.setAttribute('data-theme', val)
   }
+  /** ********************响应式测试***********************/
+  /* const obj = reactive({ name: 'lfz', age: 18 })
+  let { age: fuckAge } = toRefs(obj)
+  console.log('---')
+  fuckAge.value = 100
+  console.log(41, fuckAge)
+  console.log(43, obj) */
+  function useTest() {
+    const obj = reactive({ name: 'lfz', age: 18 })
+    setTimeout(() => {
+      console.log(obj.age)
+    }, 1000)
+    return {
+      obj: obj,
+    }
+  }
+  const { obj } = useTest()
+  obj.age = 100
+  console.log(53, obj)
 </script>
 
 <style scoped lang="scss">

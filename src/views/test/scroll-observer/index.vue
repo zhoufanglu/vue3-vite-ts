@@ -1,21 +1,21 @@
 <script setup lang="ts">
-  const requestList = ref<any>(new Array(10).fill(0).map((_, i) => i + 1))
+  /* const requestList = ref<any>(new Array(10).fill(0).map((_, i) => i + 1))
   const loadList = ref<any>([])
   const observerElement = ref<HTMLElement | null>(null)
   onMounted(() => {
     let observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          /**
+          /!**
            * isIntersecting
            * 0 表示目标元素完全不可见。
            * 1 表示目标元素完全可见。
            * 0~1 表示目标元素部分可见
-           */
+           *!/
           console.log(15, entry.intersectionRatio)
           if (entry.intersectionRatio >= 0) {
             console.log('进入可视区域')
-            // loadMore()
+            loadMore()
           } else {
             console.log('不可见')
           }
@@ -35,14 +35,19 @@
       return
     }
     loadList.value.push(...requestList.value)
-  }
+  } */
+  import TestCom from '@/views/test/scroll-observer/testCom.vue'
+
+  const key = ref(1)
 </script>
 <template>
+  <button @click="key++">change key</button>
   <div class="p-scroll">
-    <!--?列表区域-->
-    <div v-for="(i, index) in loadList" :key="index" class="card">{{ i }} -- {{ index }}</div>
-    <!--?IntersectionObserver监听的对象-->
-    <div ref="observerElement" class="observer-element">监听的dom</div>
+    <test-com :key="key"></test-com>
+    <!--    &lt;!&ndash;?列表区域&ndash;&gt;
+    <div v-for="(i, index) in loadList" :key="index" class="card">{{ i }} &#45;&#45; {{ index }}</div>
+    &lt;!&ndash;?IntersectionObserver监听的对象&ndash;&gt;
+    <div ref="observerElement" class="observer-element">监听的dom</div>-->
   </div>
 </template>
 

@@ -1,5 +1,6 @@
 <template>
   <div class="ds-switch-theme" :data-theme="theme">
+    <beforeRouteEnter></beforeRouteEnter>
     <el-radio-group v-model="theme" @change="switchTheme">
       <el-radio label="light" size="large">浅色</el-radio>
       <el-radio label="dark" size="large">深色</el-radio>
@@ -8,14 +9,36 @@
     <div class="bg">我是背景</div>
     {{ searchForm }}
     <childCom v-model:searchForm="searchForm"></childCom>
-    <h3>树的家长</h3>
-    <el-tree style="max-width: 600px" :data="data" :props="defaultProps" />
+    <h3>树的加载</h3>
+    <el-button @click="refreshPartTree('create')">create</el-button>
+    <el-button @click="refreshPartTree('update')">update</el-button>
+    <el-button @click="refreshPartTree('delete')">delete</el-button>
+    <el-tree
+      ref="treeRef"
+      node-key="objectId"
+      style="max-width: 600px"
+      :props="props"
+      :load="loadNode"
+      lazy
+      show-checkbox
+    >
+      <template #default="scope">
+        <span>{{ scope.node.label }}({{ scope.node.id }})</span>
+      </template>
+    </el-tree>
   </div>
 </template>
 <script lang="ts">
-  export default {
-    name: 'DsSwitchTheme',
-  }
+  export default defineComponent({
+    beforeRouteEnter(to, from, next) {
+      console.log(35, to)
+      console.log(36, from)
+      next((e) => {
+        console.log(38, e)
+        e.beforeRouteEnterInner(from)
+      })
+    },
+  })
 </script>
 <script setup lang="ts">
   import { ref, onMounted } from 'vue'
@@ -23,7 +46,7 @@
   import childCom from '@/views/test/vModel/chidlrenCom.vue'
   const theme = ref('light')
   const route = useRoute()
-
+  import beforeRouteEnter from './beforeRouteEnter/index.vue'
   watch(
     () => route.query,
     (val) => {
@@ -39,39 +62,58 @@
     document.querySelector('body')!.setAttribute('data-theme', val)
   }
   /** ********************tree***********************/
-  const data: any[] = [
-    {
-      label: 'Level one 1',
-      isLeaf: false,
-      children: [],
-    },
-    {
-      label: 'Level one 2',
-      children: [
-        {
-          label: 'Level two 2-1',
-          children: [
-            {
-              label: 'Level three 2-1-1',
-            },
-          ],
-        },
-        {
-          label: 'Level two 2-2',
-          children: [
-            {
-              label: 'Level three 2-2-1',
-            },
-          ],
-        },
-      ],
-    },
-  ]
-  const defaultProps = {
-    children: 'children',
-    label: 'label',
+  const treeRef: any = ref(null)
+  const props = {
+    label: 'name',
+    children: 'zones',
     isLeaf: 'isLeaf',
   }
+  const countId = ref(0)
+  const loadNode = (node: Node, resolve: (data: any[]) => void) => {
+    console.log(43, node)
+    console.log(44, node.isLeaf)
+    console.log('-----')
+    if (node.level === 0) {
+      return resolve([{ name: '全部', objectId: countId.value++ }])
+    } else if (node.level !== 0 && !node.isLeaf) {
+      setTimeout(() => {
+        const data: any[] = [
+          {
+            name: 'leaf-no-children',
+            isLeaf: true,
+            zones: [],
+            objectId: countId.value++,
+          },
+          {
+            name: 'zone',
+            isLeaf: false,
+            zones: [{ name: '222', objectId: countId.value++ }],
+            objectId: countId.value++,
+          },
+        ]
+        console.log(81, data)
+        resolve(data)
+      }, 500)
+    }
+  }
+  const refreshPartTree = (operate: any) => {
+    if (operate === 'update') {
+      console.log(93, treeRef.value)
+      treeRef!.value!.updateKeyChildren(3, [
+        {
+          name: 'leaf-no-children-fuck',
+          isLeaf: true,
+          zones: [],
+          // id: countId.value++,
+        },
+      ])
+      console.log('执行了更新')
+    }
+  }
+  function beforeRouteEnterInner(from: string) {
+    console.log(111, from)
+  }
+  defineExpose({ beforeRouteEnterInner })
 </script>
 
 <style scoped lang="scss">

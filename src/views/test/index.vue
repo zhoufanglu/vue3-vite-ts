@@ -1,5 +1,8 @@
 <template>
   <div class="ds-switch-theme" :data-theme="theme">
+    <div style="display: inline-block; border: solid 1px red" @click="handleTestClick">
+      <el-input disabled value="2323">sss</el-input>
+    </div>
     <beforeRouteEnter></beforeRouteEnter>
     <el-radio-group v-model="theme" @change="switchTheme">
       <el-radio label="light" size="large">浅色</el-radio>
@@ -26,6 +29,7 @@
         <span>{{ scope.node.label }}({{ scope.node.id }})</span>
       </template>
     </el-tree>
+    <sticky></sticky>
   </div>
 </template>
 <script lang="ts">
@@ -44,9 +48,14 @@
   import { ref, onMounted } from 'vue'
   import { useRoute } from 'vue-router'
   import childCom from '@/views/test/vModel/chidlrenCom.vue'
+  import sticky from '@/views/test/sticky/index.vue'
+  import beforeRouteEnter from './beforeRouteEnter/index.vue'
   const theme = ref('light')
   const route = useRoute()
-  import beforeRouteEnter from './beforeRouteEnter/index.vue'
+  const handleTestClick = () => {
+    console.log('ss')
+  }
+
   watch(
     () => route.query,
     (val) => {
@@ -125,5 +134,14 @@
         background-color: themed('bg_theme');
       }
     }
+  }
+</style>
+
+<style>
+  /* 覆盖禁用输入框的样式（如果需要） */
+  .el-input__inner[disabled] {
+    pointer-events: none; /* 禁用本身的点击事件 */
+    cursor: pointer; /* 让鼠标变为指针形状 */
+    opacity: 1; /* 设置不透明度，使其看起来不像禁用状态 */
   }
 </style>

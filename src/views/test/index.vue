@@ -1,6 +1,10 @@
 <template>
   <div class="ds-switch-theme" :data-theme="theme">
-    <div style="display: inline-block; border: solid 1px red" @click="handleTestClick">
+    <div
+      class="dom-jump-animate"
+      style="display: inline-block; border: solid 1px red"
+      @click="handleTestClick"
+    >
       <el-input disabled value="2323">sss</el-input>
     </div>
     <beforeRouteEnter></beforeRouteEnter>

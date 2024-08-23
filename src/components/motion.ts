@@ -1,5 +1,5 @@
 import { h, defineComponent, withDirectives, resolveDirective } from 'vue'
-console.log('aaaa')
+
 /** 封装@vueuse/motion动画库中的自定义指令v-motion */
 export default defineComponent({
   name: 'Motion',
@@ -12,7 +12,6 @@ export default defineComponent({
   render() {
     const { delay } = this
     const motion = resolveDirective('motion')
-    console.log(1500000, this.$slots.default())
     return withDirectives(
       h(
         'div',

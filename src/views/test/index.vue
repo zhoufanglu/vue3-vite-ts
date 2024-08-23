@@ -1,41 +1,3 @@
-<template>
-  <div class="ds-switch-theme" :data-theme="theme">
-    <div
-      class="dom-jump-animate"
-      style="display: inline-block; border: solid 1px red"
-      @click="handleTestClick"
-    >
-      <el-input disabled value="2323">sss</el-input>
-    </div>
-    <beforeRouteEnter></beforeRouteEnter>
-    <el-radio-group v-model="theme" @change="switchTheme">
-      <el-radio label="light" size="large">浅色</el-radio>
-      <el-radio label="dark" size="large">深色</el-radio>
-    </el-radio-group>
-    <p class="text">我是文字内容</p>
-    <div class="bg">我是背景</div>
-    {{ searchForm }}
-    <childCom v-model:searchForm="searchForm"></childCom>
-    <h3>树的加载</h3>
-    <el-button @click="refreshPartTree('create')">create</el-button>
-    <el-button @click="refreshPartTree('update')">update</el-button>
-    <el-button @click="refreshPartTree('delete')">delete</el-button>
-    <el-tree
-      ref="treeRef"
-      node-key="objectId"
-      style="max-width: 600px"
-      :props="props"
-      :load="loadNode"
-      lazy
-      show-checkbox
-    >
-      <template #default="scope">
-        <span>{{ scope.node.label }}({{ scope.node.id }})</span>
-      </template>
-    </el-tree>
-    <sticky></sticky>
-  </div>
-</template>
 <script lang="ts">
   export default defineComponent({
     beforeRouteEnter(to, from, next) {
@@ -43,12 +5,13 @@
       console.log(36, from)
       next((e) => {
         console.log(38, e)
-        e.beforeRouteEnterInner(from)
+        // e.beforeRouteEnterInner(from)
       })
     },
   })
 </script>
 <script setup lang="ts">
+  import Motion from '@/components/motion'
   import { ref, onMounted } from 'vue'
   import { useRoute } from 'vue-router'
   import childCom from '@/views/test/vModel/chidlrenCom.vue'
@@ -128,6 +91,46 @@
   }
   defineExpose({ beforeRouteEnterInner })
 </script>
+<template>
+  <div class="ds-switch-theme" :data-theme="theme">
+    <div
+      class="dom-jump-animate"
+      style="display: inline-block; border: solid 1px red"
+      @click="handleTestClick"
+    >
+      <el-input disabled value="2323">sss</el-input>
+    </div>
+    <beforeRouteEnter></beforeRouteEnter>
+    <el-radio-group v-model="theme" @change="switchTheme">
+      <el-radio label="light" size="large">浅色</el-radio>
+      <el-radio label="dark" size="large">深色</el-radio>
+    </el-radio-group>
+    <p class="text">我是文字内容</p>
+    <div class="bg">我是背景</div>
+    {{ searchForm }}
+    <childCom v-model:searchForm="searchForm"></childCom>
+    <h3>树的加载</h3>
+    <el-button @click="refreshPartTree('create')">create</el-button>
+    <el-button @click="refreshPartTree('update')">update</el-button>
+    <el-button @click="refreshPartTree('delete')">delete</el-button>
+    <el-tree
+      ref="treeRef"
+      node-key="objectId"
+      style="max-width: 600px"
+      :props="props"
+      :load="loadNode"
+      lazy
+      show-checkbox
+    >
+      <template #default="scope">
+        <span>{{ scope.node.label }}({{ scope.node.id }})</span>
+      </template>
+    </el-tree>
+    <sticky></sticky>
+
+    <Motion> <h4>motion</h4> </Motion>
+  </div>
+</template>
 
 <style scoped lang="scss">
   .ds-switch-theme {

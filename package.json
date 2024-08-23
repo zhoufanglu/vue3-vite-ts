@@ -11,6 +11,7 @@
     "lint": "lint-staged"
   },
   "dependencies": {
+    "daas-ui": "0.0.57",
     "vue": "^3.4.37"
   },
   "devDependencies": {
@@ -21,9 +22,9 @@
     "@typescript-eslint/eslint-plugin": "^8.0.1",
     "@typescript-eslint/parser": "^8.0.1",
     "@vitejs/plugin-vue": "^5.1.2",
+    "@vueuse/motion": "^2.2.3",
     "axios": "^1.7.3",
     "commitlint": "^19.4.0",
-    "daas-ui": "^0.0.57",
     "echarts": "^5.5.1",
     "element-plus": "^2.8.0",
     "eslint": "9.8.0",

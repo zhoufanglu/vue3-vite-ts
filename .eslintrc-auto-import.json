@@ -80,6 +80,10 @@
     "watchPostEffect": true,
     "watchSyncEffect": true,
     "useUserStore": true,
-    "confirmDialog": true
+    "confirmDialog": true,
+    "ExtractDefaultPropTypes": true,
+    "ExtractPropTypes": true,
+    "ExtractPublicPropTypes": true,
+    "WritableComputedRef": true
   }
 }

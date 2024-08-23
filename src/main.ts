@@ -4,6 +4,7 @@ import router from '@/router'
 import pinia from '@/store/index'
 const app = createApp(App)
 import '@/style.scss' // 引入下 不然全局scss不生效(https://github.com/vitejs/vite/issues/5682#issuecomment-968713998)
+import { MotionPlugin } from '@vueuse/motion'
 
 // element
 import ElementPlus from 'element-plus'
@@ -13,4 +14,4 @@ import 'element-plus/dist/index.css'
 // @ts-ignore
 import DaasUi from 'daas-ui'
 import 'daas-ui/lib/style.css'
-app.use(DaasUi.DaasUi).use(ElementPlus).use(router).use(pinia).mount('#app')
+app.use(DaasUi.DaasUi).use(MotionPlugin).use(ElementPlus).use(router).use(pinia).mount('#app')

@@ -93,6 +93,7 @@
 </script>
 <template>
   <div class="ds-switch-theme" :data-theme="theme">
+    <el-button v-auth="['aa']" type="primary">权限按钮v-auth</el-button>
     <div
       class="dom-jump-animate"
       style="display: inline-block; border: solid 1px red"

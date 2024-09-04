@@ -2,6 +2,7 @@
   import type { FormInstance, FormRules } from 'element-plus'
   import type { UserFormType } from '@/views/login/types'
   import { login as loginApi } from '@/service/api/modules/users'
+  import Motion from '@/components/motion'
 
   const userStore = useUserStore()
   const router = useRouter()
@@ -64,7 +65,7 @@
     </div>
     <div class="login-content">
       <div class="form">
-        <div class="title"> 用户登录 </div>
+        <Motion><div class="title"> 用户登录 </div></Motion>
         <el-form ref="loginFormRef" :model="loginForm" :rules="rules" style="margin: 0 20px">
           <el-form-item prop="username">
             <el-input v-model="loginForm.username" placeholder="请输入用户名">
@@ -80,11 +81,14 @@
               </template>
             </el-input>
           </el-form-item>
-          <el-form-item>
-            <el-button :loading="loading" type="primary" class="login-btn" @click="login">
-              登录
-            </el-button>
-          </el-form-item>
+          <Motion>
+            <el-form-item>
+              <el-button :loading="loading" type="primary" class="login-btn" @click="login">
+                登录
+              </el-button>
+            </el-form-item>
+          </Motion>
+
           <el-form-item>
             <div class="remember">
               <el-checkbox v-model="userStore.isRemember" label="记住密码" style="color: #515a6e" />

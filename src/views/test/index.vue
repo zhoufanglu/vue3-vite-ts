@@ -100,7 +100,7 @@
     >
       <el-input disabled value="2323">sss</el-input>
     </div>
-    <beforeRouteEnter></beforeRouteEnter>
+    <beforeRouteEnter />
     <el-radio-group v-model="theme" @change="switchTheme">
       <el-radio label="light" size="large">浅色</el-radio>
       <el-radio label="dark" size="large">深色</el-radio>
@@ -108,7 +108,7 @@
     <p class="text">我是文字内容</p>
     <div class="bg">我是背景</div>
     {{ searchForm }}
-    <childCom v-model:searchForm="searchForm"></childCom>
+    <childCom v-model:searchForm="searchForm" />
     <h3>树的加载</h3>
     <el-button @click="refreshPartTree('create')">create</el-button>
     <el-button @click="refreshPartTree('update')">update</el-button>
@@ -126,7 +126,7 @@
         <span>{{ scope.node.label }}({{ scope.node.id }})</span>
       </template>
     </el-tree>
-    <sticky></sticky>
+    <sticky />
 
     <Motion> <h4>motion</h4> </Motion>
   </div>

@@ -9,13 +9,16 @@
   })
   const activeName = ref('ReturnType')
   const moduleKeys = Object.keys(modules)
+
+  console.log(34, import.meta.env.VITE_APP_WEB_URL)
+  console.log(34, window)
 </script>
 <template>
   <div class="">
     <el-tabs v-model="activeName" class="demo-tabs" style="margin-top: 16px; font-size: 24px">
-      <el-tab-pane v-for="i in moduleKeys" :key="i" :label="i" :name="i"></el-tab-pane>
+      <el-tab-pane v-for="i in moduleKeys" :key="i" :label="i" :name="i" />
     </el-tabs>
-    <Component :is="modules[activeName]"></Component>
+    <Component :is="modules[activeName]" />
   </div>
 </template>
 

@@ -1,6 +1,6 @@
-import { logout as logoutApi } from '@/service/api/modules/users'
+import { logout as logoutApi } from '@/service/modules/user'
 import { defineStore } from 'pinia'
-import { UserType } from '@/store/users/type'
+import type { UserType } from '@/store/users/type'
 const useUserStore = defineStore({
   id: 'userInfo',
   state: () => ({
@@ -8,7 +8,7 @@ const useUserStore = defineStore({
     isRemember: false,
   }),
   actions: {
-    setUserInfo(userInfo: UserType | {}) {
+    setUserInfo(userInfo: UserType) {
       this.userInfo = userInfo
     },
     async logout() {

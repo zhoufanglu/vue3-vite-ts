@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios'
+import axios, { type AxiosRequestConfig, AxiosError, type AxiosResponse } from 'axios'
 import { useUserStore } from '@/store/users'
 import { ElMessage } from 'element-plus'
 
@@ -17,7 +17,6 @@ const service = axios.create({
 } as AxiosRequestConfig)
 
 /** ********************请求拦截器***********************/
-// @ts-ignore
 service.interceptors.request.use(
   async (config) => {
     const userStore = useUserStore()

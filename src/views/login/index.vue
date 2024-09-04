@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import type { FormInstance, FormRules } from 'element-plus'
   import type { UserFormType } from '@/views/login/types'
-  import { login as loginApi } from '@/service/api/modules/users'
+  import { login as loginApi } from '@/service/modules/user'
   import Motion from '@/components/motion'
 
   const userStore = useUserStore()

@@ -17,6 +17,7 @@
   import childCom from '@/views/test/vModel/chidlrenCom.vue'
   import sticky from '@/views/test/sticky/index.vue'
   import beforeRouteEnter from './beforeRouteEnter/index.vue'
+  import { message, closeAllMessage } from '@/tools/message'
   const theme = ref('light')
   const route = useRoute()
   const handleTestClick = () => {
@@ -89,11 +90,18 @@
   function beforeRouteEnterInner(from: string) {
     console.log(111, from)
   }
+  const openMessage = () => {
+    message('aaa') // 成功
+    message('aaa', { type: 'error' }) // 失败
+  }
+
   defineExpose({ beforeRouteEnterInner })
 </script>
 <template>
   <div class="ds-switch-theme" :data-theme="theme">
     <el-button v-auth="['aa']" type="primary">权限按钮v-auth</el-button>
+    <el-button type="primary" @click="openMessage">message test</el-button>
+    <el-button @click="closeAllMessage">close all message</el-button>
     <div
       class="dom-jump-animate"
       style="display: inline-block; border: solid 1px red"

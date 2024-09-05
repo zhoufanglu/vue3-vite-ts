@@ -8,6 +8,7 @@ declare global {
   const EffectScope: typeof import('vue')['EffectScope']
   const ElMessage: typeof import('element-plus/es')['ElMessage']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
+  const closeAllMessage: typeof import('./tools/message')['closeAllMessage']
   const computed: typeof import('vue')['computed']
   const confirmDialog: typeof import('./tools/confirmDialog')['default']
   const createApp: typeof import('vue')['createApp']
@@ -32,6 +33,7 @@ declare global {
   const mapStores: typeof import('pinia')['mapStores']
   const mapWritableState: typeof import('pinia')['mapWritableState']
   const markRaw: typeof import('vue')['markRaw']
+  const message: typeof import('./tools/message')['message']
   const nextTick: typeof import('vue')['nextTick']
   const onActivated: typeof import('vue')['onActivated']
   const onBeforeMount: typeof import('vue')['onBeforeMount']
@@ -94,6 +96,7 @@ declare module 'vue' {
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
+    readonly closeAllMessage: UnwrapRef<typeof import('./tools/message')['closeAllMessage']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly confirmDialog: UnwrapRef<typeof import('./tools/confirmDialog')['default']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
@@ -118,6 +121,7 @@ declare module 'vue' {
     readonly mapStores: UnwrapRef<typeof import('pinia')['mapStores']>
     readonly mapWritableState: UnwrapRef<typeof import('pinia')['mapWritableState']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
+    readonly message: UnwrapRef<typeof import('./tools/message')['message']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
     readonly onBeforeMount: UnwrapRef<typeof import('vue')['onBeforeMount']>

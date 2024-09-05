@@ -110,6 +110,7 @@ export default defineFlatConfig([
     },
     rules: {
       ...pluginTypeScript.configs.strict.rules,
+      '@typescript-eslint/no-unsafe-function-type': 'off',
       '@typescript-eslint/ban-types': 'off',
       '@typescript-eslint/no-redeclare': 'error',
       '@typescript-eslint/ban-ts-comment': 'off',

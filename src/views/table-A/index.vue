@@ -26,7 +26,6 @@
 <script setup lang="ts">
   import { onMounted, toRefs, ref, reactive } from 'vue'
   import useList from '@/hooks/useList'
-  import api from '@/service/api'
   interface UserType {
     name: string
     age: number

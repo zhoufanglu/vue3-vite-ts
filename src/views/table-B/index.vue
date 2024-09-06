@@ -4,7 +4,6 @@
 
 <script setup>
   import { onMounted, toRefs, ref, reactive } from 'vue'
-  import api from '@/service/api'
   const filters = reactive({
     name_b: 'a',
     age_b: null,

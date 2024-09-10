@@ -8,6 +8,7 @@ declare global {
   const EffectScope: typeof import('vue')['EffectScope']
   const ElMessage: typeof import('element-plus/es')['ElMessage']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
+  const appendParamsToUrl: typeof import('./tools/index')['appendParamsToUrl']
   const closeAllMessage: typeof import('./tools/message')['closeAllMessage']
   const computed: typeof import('vue')['computed']
   const confirmDialog: typeof import('./tools/confirmDialog')['default']
@@ -96,6 +97,7 @@ declare module 'vue' {
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
+    readonly appendParamsToUrl: UnwrapRef<typeof import('./tools/index')['appendParamsToUrl']>
     readonly closeAllMessage: UnwrapRef<typeof import('./tools/message')['closeAllMessage']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly confirmDialog: UnwrapRef<typeof import('./tools/confirmDialog')['default']>

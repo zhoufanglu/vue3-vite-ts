@@ -86,6 +86,7 @@
     "ExtractPublicPropTypes": true,
     "WritableComputedRef": true,
     "closeAllMessage": true,
-    "message": true
+    "message": true,
+    "appendParamsToUrl": true
   }
 }

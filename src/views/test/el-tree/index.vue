@@ -2,6 +2,7 @@
   interface Tree {
     label: string
     children?: Tree[]
+    id?: string
   }
   const curNode = ref()
   const treeRef = ref()
@@ -13,13 +14,16 @@
 
   const data = ref<Tree[]>([
     {
-      label: 'Level one 1',
+      label: 'Level one 1 ----',
+      id: '1',
       children: [
         {
           label: 'Level two 1-1',
+          id: '1-1',
           children: [
             {
               label: 'Level three 1-1-1',
+              id: '1-1-1',
             },
           ],
         },
@@ -27,9 +31,11 @@
     },
     {
       label: 'Level one 2',
+      id: '2',
       children: [
         {
           label: 'Level two 2-1',
+          id: '2-1',
           children: [
             {
               label: 'Level three 2-1-1',
@@ -38,9 +44,11 @@
         },
         {
           label: 'Level two 2-2',
+          id: '2-2',
           children: [
             {
               label: 'Level three 2-2-1',
+              id: '2-2-1',
             },
           ],
         },
@@ -48,20 +56,25 @@
     },
     {
       label: 'Level one 3',
+      id: '3',
       children: [
         {
           label: 'Level two 3-1',
+          id: '3-1',
           children: [
             {
               label: 'Level three 3-1-1',
+              id: '3-1-1',
             },
           ],
         },
         {
           label: 'Level two 3-2',
+          id: '3-2',
           children: [
             {
               label: 'Level three 3-2-1',
+              id: '3-2-1',
             },
           ],
         },
@@ -72,6 +85,7 @@
   const defaultProps = {
     children: 'children',
     label: 'label',
+    id: 'id',
   }
 
   const remove = (node: any, data: any) => {
@@ -110,14 +124,79 @@
     treeRef!.value.setCurrentKey(key)
     curNode.value = treeRef!.value.getNode(key)
   }
+
+  function clearTree() {
+    data.value = []
+    // data.value = [...data.value]
+  }
+
+  interface TreeNode {
+    modelId: string
+    modelFieldId: string
+    relationModelId: number
+    relationModelFieldId: string
+    relationDesc: string
+    name: string
+    id: number | null
+    childList: TreeNode[]
+  }
+
+  function traverseTree(node: TreeNode, callback: (node: TreeNode) => void) {
+    // 处理当前节点
+    callback(node)
+
+    // 递归处理子节点
+    if (node.childList && node.childList.length > 0) {
+      node.childList.forEach((child) => traverseTree(child, callback))
+    }
+  }
+
+  // 示例树
+  const treeData: TreeNode = {
+    modelId: '',
+    modelFieldId: '',
+    relationModelId: 53,
+    relationModelFieldId: '',
+    relationDesc: '',
+    name: 'test2',
+    id: 53,
+    childList: [
+      {
+        modelId: '',
+        modelFieldId: '',
+        relationModelId: 54,
+        relationModelFieldId: '',
+        relationDesc: '',
+        name: 'child1',
+        id: 54,
+        childList: [],
+      },
+      {
+        modelId: '',
+        modelFieldId: '',
+        relationModelId: 55,
+        relationModelFieldId: '',
+        relationDesc: '',
+        name: 'child2',
+        id: 55,
+        childList: [],
+      },
+    ],
+  }
+
+  // 使用遍历函数
+  traverseTree(treeData, (node) => {
+    console.log('遍历到节点:', node)
+  })
 </script>
 <template>
   <div class="">
-    <iframe
+    <!--    <iframe
       src="https://www.eptrade.cn/ep-trade/#/pages/cargo/index?mmsi=369207000&startTime=1723010400&endTime=1723015563&ac=F123CC81FFDD42C781D8507377D0F307&appFrom=KJGF"
       style="width: 500px; height: 500px"
-    ></iframe>
+    ></iframe>-->
     <el-button @click="setCurrentNode('Level one 2')">test</el-button>
+    <el-button @click="clearTree">clear tree</el-button>
     <el-tree
       ref="treeRef"
       :default-expanded-keys="['Level one 1']"
@@ -132,6 +211,7 @@
       <template #default="{ node, data }">
         <span class="custom-tree-node">
           <span>{{ node.label }}</span>
+          <span style="color: red">{{ data.id }}</span>
           <span>
             <!--          <a @click="append(data)"> Append </a>-->
             <a style="margin-left: 8px" @click="remove(node, data)"> Delete </a>

@@ -9,7 +9,7 @@
       </div>
       <div class="content">
         <router-view v-slot="{ Component, route }">
-          <transition name="el-fade-in" mode="out-in">
+          <transition name="fade-transform">
             <component :is="Component" :key="route.fullPath" />
           </transition>
         </router-view>

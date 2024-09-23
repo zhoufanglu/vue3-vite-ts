@@ -2,6 +2,7 @@
   import type { PropType } from 'vue'
   import BtnRow from '@/views/error-page/BtnRow.vue'
   import { useErrorPage } from '@/views/error-page/useErrorPage'
+  import Motion from '@/components/motion'
 
   const props = defineProps({
     pageType: {
@@ -18,12 +19,14 @@
       <!-- ?图片 -->
       <img :src="curImg" alt="" />
       <!-- ?文案 -->
-      <p>{{ errorEnum[pageType].text }}</p>
-      <!-- ?按钮 -->
-      <div class="btn-row">
-        <!--        :v-node="errorEnum[pageType]" -->
-        <BtnRow :dom="errorEnum[pageType].render" />
-      </div>
+      <Motion>
+        <p>{{ errorEnum[pageType].text }}</p>
+        <!-- ?按钮 -->
+        <div class="btn-row">
+          <!--        :v-node="errorEnum[pageType]" -->
+          <BtnRow :dom="errorEnum[pageType].render" />
+        </div>
+      </Motion>
     </div>
   </div>
 </template>

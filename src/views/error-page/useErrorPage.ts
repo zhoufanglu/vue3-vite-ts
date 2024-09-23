@@ -36,7 +36,7 @@ function useErrorPage(pageType: Ref) {
   }
   const errorEnum = {
     401: {
-      text: '您的账号没有通过认证，请联系管理员（admin@easipass.com）开通',
+      text: '您的账号没有通过认证，请联系管理员开通',
       render: () =>
         h('div', {}, [
           h(ElButton, { onClick: () => handleOperate('refresh') }, '刷新页面'),

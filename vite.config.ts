@@ -39,8 +39,6 @@ export default ({ mode, command }: ConfigEnv) => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
-        '@a': path.resolve(__dirname, 'src/assets'),
-        '@c': path.resolve(__dirname, 'src/components'),
       },
     },
     css: {
@@ -57,6 +55,8 @@ export default ({ mode, command }: ConfigEnv) => {
       sourcemap: false,
       outDir: env.VITE_OUTPUT_DIR,
       assetsDir: 'assets',
+      // 消除打包大小超过500kb警告
+      chunkSizeWarningLimit: 4000,
     },
   })
 }

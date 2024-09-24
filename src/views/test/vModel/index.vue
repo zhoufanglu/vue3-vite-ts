@@ -1,6 +1,9 @@
 <template>
   <div class="v-model-test">
-    <child-com v-model:searchForm="searchForm"></child-com>
+    <h4>父组件</h4>
+    <el-input v-model="fatherForm.name"></el-input>
+    <el-input v-model="fatherForm.age"></el-input>
+    <child-com v-model:searchForm="searchForm" :father-form="fatherForm"></child-com>
     <el-button @click="handleLog">log</el-button>
     {{ value1 }}
     <el-date-picker
@@ -15,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-  import ChildCom from './chidlrenCom.vue'
+  import ChildCom from './ChildCom.vue'
   import type { SearchTypes } from '@/views/test/vModel/types'
   import confirmDialog, { ConfirmDialogParamsType } from '@/tools/confirmDialog'
   const searchForm = reactive<SearchTypes>({
@@ -25,6 +28,10 @@
   const handleLog = () => {
     console.log(17, searchForm)
   }
+  const fatherForm = reactive({
+    name: '',
+    age: 10,
+  })
   /** ********************日期***********************/
   const value1 = ref('')
   const rangeTime = () => {
@@ -71,5 +78,6 @@
 <style scoped lang="scss">
   .v-model-test {
     padding: 30px;
+    border: solid 1px red;
   }
 </style>

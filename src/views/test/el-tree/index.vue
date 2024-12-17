@@ -188,6 +188,31 @@
   traverseTree(treeData, (node) => {
     console.log('遍历到节点:', node)
   })
+
+  const selectValue = ref('1-1-1')
+
+  const selectData = ref([])
+  setTimeout(() => {
+    selectData.value = [
+      {
+        bindId: '1',
+        label: 'Level one 1',
+        children: [
+          {
+            bindId: '1-1',
+            label: 'Level two 1-1',
+            children: [
+              {
+                bindId: '1-1-1',
+                label: 'Level three 1-1-1',
+              },
+            ],
+          },
+        ],
+      },
+    ]
+    selectValue.value = '1-1-1'
+  }, 1000)
 </script>
 <template>
   <div class="">
@@ -219,6 +244,19 @@
         </span>
       </template>
     </el-tree>
+
+    <el-divider />
+
+    <el-tree-select
+      v-model="selectValue"
+      :data="selectData"
+      node-key="bindId"
+      :render-after-expand="false"
+      :props="{
+        value: 'bindId',
+      }"
+      style="width: 240px"
+    />
   </div>
 </template>
 

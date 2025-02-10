@@ -1,6 +1,15 @@
 // 入口文件
-@import './scss/init.scss';
-@import './scss/global.scss';
-@import "./scss/theme/theme";
-@import "./scss/theme/mixin";
-@import './scss/transition.scss';
+/*@use './scss/init' as *;
+@use './scss/global' as *;
+@use './scss/mixin' as *;
+// @use './scss/theme/theme' as *;
+// @use './scss/theme/mixin' as *;
+@use './scss/transition' as *;*/
+
+@forward './scss/init';
+@forward './scss/global';
+@forward "./scss/mixin";
+@forward './scss/transition';
+/*@forward './scss/theme/theme';
+@forward './scss/theme/mixin';*/
+

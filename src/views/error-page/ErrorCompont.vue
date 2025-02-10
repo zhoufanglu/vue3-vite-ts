@@ -55,7 +55,7 @@
       }
 
       .btn-row {
-        @include vertical-center;
+        // @include vertical-center;
       }
     }
   }

@@ -87,6 +87,13 @@
     "WritableComputedRef": true,
     "closeAllMessage": true,
     "message": true,
-    "appendParamsToUrl": true
+    "appendParamsToUrl": true,
+    "DirectiveBinding": true,
+    "MaybeRef": true,
+    "MaybeRefOrGetter": true,
+    "onWatcherCleanup": true,
+    "useId": true,
+    "useModel": true,
+    "useTemplateRef": true
   }
 }

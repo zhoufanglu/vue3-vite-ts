@@ -18,6 +18,7 @@ const scrollObserver = () => import('@/views/test/scroll-observer/index.vue')
 const scrollListener = () => import('@/views/test/scroll-listener/index.vue')
 const tableTest = () => import('@/views/test/table-test/index.vue')
 const elTree = () => import('@/views/test/el-tree/index.vue')
+const watchPage = () => import('@/views/watch/index.vue')
 
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -87,6 +88,10 @@ const test: RouteRecordRaw[] = [
   {
     path: '/el-tree',
     component: elTree,
+  },
+  {
+    path: '/watch',
+    component: watchPage,
   },
 ]
 

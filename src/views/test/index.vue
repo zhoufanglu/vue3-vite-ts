@@ -144,11 +144,11 @@
 <style scoped lang="scss">
   .ds-switch-theme {
     .text {
-      color: $theme;
+      /*color: $theme;
       @include themify() {
         color: themed('theme');
         background-color: themed('bg_theme');
-      }
+      }*/
     }
   }
 </style>

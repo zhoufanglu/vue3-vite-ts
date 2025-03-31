@@ -44,6 +44,7 @@ export default ({ mode, command }: ConfigEnv) => {
     css: {
       preprocessorOptions: {
         scss: {
+          api: 'modern',
           additionalData: '@use "@/assets/styles/index.scss" as *;',
         },
       },

@@ -20,6 +20,7 @@ const tableTest = () => import('@/views/test/table-test/index.vue')
 const elTree = () => import('@/views/test/el-tree/index.vue')
 const watchPage = () => import('@/views/test/watch/index.vue')
 const shoppingCartAnimate = () => import('@/views/test/shopping-cart-animate/index.vue')
+const menu = () => import('@/views/test/menu/index.vue')
 
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -97,6 +98,10 @@ const test: RouteRecordRaw[] = [
   {
     path: '/shopping-cart-animate',
     component: shoppingCartAnimate,
+  },
+  {
+    path: '/menu',
+    component: menu,
   },
 ]
 

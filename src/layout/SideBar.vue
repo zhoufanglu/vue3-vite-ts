@@ -1,12 +1,22 @@
 <template>
   <div class="d-side-bar">
-    <ds-side-bar
+    <!--    <ds-side-bar
       v-model:menus="menus"
       :is-show-drawer="true"
       custom-class="side-bar"
       drawer-custom-class="drawer-custom-class"
       @handle-menu-click="handleMenuClick"
-    />
+    />-->
+    <el-menu class="side-bar">
+      <el-sub-menu v-for="menu in menus" :key="menu.path" :index="menu.path">
+        <template #title>
+          <span>{{ menu.name }}</span>
+        </template>
+        <el-menu-item v-for="m in menu.children" :key="m.path" @click="handleMenuClick(m)">{{
+          m.name
+        }}</el-menu-item>
+      </el-sub-menu>
+    </el-menu>
   </div>
 </template>
 
@@ -32,6 +42,7 @@
       children: menuChildren,
     },
   ])
+  console.log(43, menus)
   const router = useRouter()
   const handleMenuClick = async (menu: any) => {
     console.log(36, menu)
@@ -39,13 +50,7 @@
   }
 </script>
 
-<style scoped lang="scss">
-  .d-side-bar {
-    .side-bar {
-      height: 100vh;
-    }
-  }
-</style>
+<style scoped lang="scss"></style>
 <style lang="scss">
   .drawer-custom-class {
     height: calc(100% - var(--nav-bar-height));

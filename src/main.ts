@@ -9,21 +9,9 @@ import { MotionPlugin } from '@vueuse/motion'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
-// daas-ui
-// @ts-ignore
-import DaasUi from 'daas-ui'
-import 'daas-ui/lib/style.css'
-
 // 自定义指令
 import directivesTool from '@/directives'
 
 const app = createApp(App)
 
-app
-  .use(DaasUi.DaasUi)
-  .use(MotionPlugin)
-  .use(ElementPlus)
-  .use(router)
-  .use(pinia)
-  .use(directivesTool)
-  .mount('#app')
+app.use(MotionPlugin).use(ElementPlus).use(router).use(pinia).use(directivesTool).mount('#app')

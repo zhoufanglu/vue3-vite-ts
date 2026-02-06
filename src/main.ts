@@ -9,10 +9,11 @@ import { MotionPlugin } from '@vueuse/motion'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
-// daas-ui
-// @ts-ignore
+// daas-ui要比element-plus后引入，可重置element-plus中部分样式
+import 'daas-ui/es/daas-ui.css'
+import 'daas-ui/es/newEl.css'
+
 import DaasUi from 'daas-ui'
-import 'daas-ui/lib/style.css'
 
 // 自定义指令
 import directivesTool from '@/directives'
@@ -20,7 +21,7 @@ import directivesTool from '@/directives'
 const app = createApp(App)
 
 app
-  .use(DaasUi.DaasUi)
+  .use(DaasUi)
   .use(MotionPlugin)
   .use(ElementPlus)
   .use(router)

@@ -5,7 +5,7 @@
       :is-show-drawer="true"
       custom-class="side-bar"
       drawer-custom-class="drawer-custom-class"
-      @handle-menu-click="handleMenuClick"
+      @menu-click="handleMenuClick"
     />
   </div>
 </template>
@@ -16,6 +16,7 @@
   const menuChildren = test.map((r) => {
     return {
       name: r.path,
+      title: r.path,
       path: r.path,
       icon: '&#xe682;',
       isCollect: true,
@@ -29,6 +30,9 @@
       name: 'test',
       path: '/',
       icon: '',
+      meta: {
+        title: '测试页面',
+      },
       children: menuChildren,
     },
   ])

@@ -11,7 +11,7 @@
     "lint": "lint-staged"
   },
   "dependencies": {
-    "daas-ui": "0.0.57",
+    "daas-ui": "1.1.22",
     "gsap": "^3.12.7",
     "vue": "^3.5.13"
   },

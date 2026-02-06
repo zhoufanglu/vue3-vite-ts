@@ -33,7 +33,8 @@ export default ({ mode, command }: ConfigEnv) => {
       Components({
         extensions: ['vue'],
         include: [/\.vue$/, /\.vue\?vue/],
-        dirs: ['src/components', 'src/**/components'],
+        // dirs: ['src/components', 'src/**/components'],
+        dirs: ['src/components'],
       }),
     ],
     resolve: {

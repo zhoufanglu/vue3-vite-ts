@@ -18,6 +18,7 @@
   import sticky from '@/views/test/sticky/index.vue'
   import beforeRouteEnter from './beforeRouteEnter/index.vue'
   import { message, closeAllMessage } from '@/tools/message'
+
   const theme = ref('light')
   const route = useRoute()
   const handleTestClick = () => {
@@ -138,6 +139,11 @@
     <sticky />
 
     <Motion> <h4>motion</h4> </Motion>
+    <iframe
+      style="width: 500px; height: 500px"
+      src="https://emb.data.myvessel.cn/microapps/app-map-w/?hideRightToolbar=true&auth_key=1763443610-6fce3a81e6684812bc9994683b3435b4-SHYTGJGFYXGS_API01-5521191be2c4a6d48d04cf07605619fc&showInfoPanel=false&shipShapeZoom=2&trackAnimate=false&codePath="
+      frameborder="0"
+    ></iframe>
   </div>
 </template>
 

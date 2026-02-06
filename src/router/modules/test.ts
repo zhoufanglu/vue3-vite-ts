@@ -21,6 +21,7 @@ const elTree = () => import('@/views/test/el-tree/index.vue')
 const watchPage = () => import('@/views/test/watch/index.vue')
 const shoppingCartAnimate = () => import('@/views/test/shopping-cart-animate/index.vue')
 const menu = () => import('@/views/test/menu/index.vue')
+const batchImportComponents = () => import('@/views/test/batch-import-components/index.vue')
 
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -102,6 +103,10 @@ const test: RouteRecordRaw[] = [
   {
     path: '/menu',
     component: menu,
+  },
+  {
+    path: '/batch-import-components',
+    component: batchImportComponents,
   },
 ]
 

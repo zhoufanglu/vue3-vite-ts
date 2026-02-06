@@ -34,6 +34,7 @@ declare global {
   const mapState: typeof import('pinia')['mapState']
   const mapStores: typeof import('pinia')['mapStores']
   const mapWritableState: typeof import('pinia')['mapWritableState']
+  const mapping: typeof import('./tools/mapping')['default']
   const markRaw: typeof import('vue')['markRaw']
   const message: typeof import('./tools/message')['message']
   const nextTick: typeof import('vue')['nextTick']
@@ -128,6 +129,7 @@ declare module 'vue' {
     readonly mapState: UnwrapRef<typeof import('pinia')['mapState']>
     readonly mapStores: UnwrapRef<typeof import('pinia')['mapStores']>
     readonly mapWritableState: UnwrapRef<typeof import('pinia')['mapWritableState']>
+    readonly mapping: UnwrapRef<typeof import('./tools/mapping')['default']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
     readonly message: UnwrapRef<typeof import('./tools/message')['message']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>

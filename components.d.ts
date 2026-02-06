@@ -7,11 +7,15 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    A: typeof import('./src/views/test/batch-import-components/components/A.vue')['default']
     AnimateTab: typeof import('./src/components/AnimateTab.vue')['default']
+    B: typeof import('./src/views/test/batch-import-components/components/B.vue')['default']
+    C: typeof import('./src/views/test/batch-import-components/components/C.vue')['default']
     Function: typeof import('./src/views/test/study-ts/components/Function.vue')['default']
     ReturnType: typeof import('./src/views/test/study-ts/components/ReturnType.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TestA: typeof import('./src/views/test/batch-import-components/components/TestA.vue')['default']
     TestCom: typeof import('./src/components/TestCom.vue')['default']
   }
 }

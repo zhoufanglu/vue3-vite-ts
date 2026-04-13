@@ -95,6 +95,7 @@
     "useId": true,
     "useModel": true,
     "useTemplateRef": true,
-    "mapping": true
+    "mapping": true,
+    "ElMessage": true
   }
 }

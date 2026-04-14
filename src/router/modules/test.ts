@@ -22,10 +22,15 @@ const watchPage = () => import('@/views/test/watch/index.vue')
 const shoppingCartAnimate = () => import('@/views/test/shopping-cart-animate/index.vue')
 const menu = () => import('@/views/test/menu/index.vue')
 const batchImportComponents = () => import('@/views/test/batch-import-components/index.vue')
+const useList = () => import('@/views/test/use-list/index.vue')
 
 import type { RouteRecordRaw } from 'vue-router'
 
 const test: RouteRecordRaw[] = [
+  {
+    path: '/use-list',
+    component: useList,
+  },
   {
     path: '/longList_1',
     component: longList_1,

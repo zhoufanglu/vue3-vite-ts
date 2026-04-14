@@ -1,20 +1,24 @@
-import { reactive, ref, watch } from 'vue'
+import { reactive, watch } from 'vue'
 import { pick } from 'lodash'
 import { ElMessage } from 'element-plus'
-import type { ListVariablesType, OptionsType } from '@/hooks/useList/types'
+import type { ListVariablesType, UseListOptions } from '@/hooks/useList/types'
 /**
- * @param listRequestFn  请求接口函数
+ * @param requestList  请求接口函数
  * @param options 配置项
  */
-const useList = <ItemType>(listRequestFn: any, options: OptionsType<ItemType> = {}) => {
+// prettier-ignore
+const useList = <RawItem, Item = RawItem>(
+  requestList: (params: any) => Promise<any>,
+  options: UseListOptions<Item> = {}
+) => {
   const {
     preRequest,
-    filterOption = reactive({}),
-    transformFn = undefined,
+    queryForm = reactive({}),
+    formatList = undefined,
     immediate = true,
   } = options
   // 定义抛出的变量
-  const listVariables: ListVariablesType<ItemType> = reactive({
+  const listVariables: ListVariablesType<Item> = reactive({
     loading: false,
     list: [],
     pagination: {
@@ -25,19 +29,24 @@ const useList = <ItemType>(listRequestFn: any, options: OptionsType<ItemType> = 
   })
   const getListData = async () => {
     listVariables.loading = true
+
     const params = {
       // 分页数据
       ...pick(listVariables.pagination, ['pageNo', 'pageSize']),
       // 过滤数据
-      ...filterOption,
+      ...queryForm,
     }
-    const { data, total }: { data: ItemType[]; total: number } = await listRequestFn(params)
+    console.log(39, params)
+    console.log('-----')
+    // !目前后端的格式是 list, total 这种，后续如果有变动，这里需要调整
+    const { list, total }: { list: Item[]; total: number } = await requestList(params)
+
     try {
       // 请求之前的一些请求
       preRequest?.()
       // 格式化一下数据
       // TODO: 返回类型怎么玩
-      listVariables.list = transformFn ? transformFn(data) : data
+      listVariables.list = formatList ? formatList(list) : list
       listVariables.loading = false
       listVariables.pagination.total = total
     } catch (e: any) {
@@ -51,11 +60,11 @@ const useList = <ItemType>(listRequestFn: any, options: OptionsType<ItemType> = 
   const resetListData = async () => {
     listVariables.pagination.pageNo = 1
     listVariables.pagination.pageSize = 10
-    if (!filterOption) return false
+    if (!queryForm) return false
 
-    const keys = Reflect.ownKeys(filterOption)
+    const keys = Reflect.ownKeys(queryForm)
     keys.forEach((key) => {
-      Reflect.set(filterOption!, key, undefined)
+      Reflect.set(queryForm!, key, undefined)
     })
     await getListData()
   }
@@ -79,4 +88,4 @@ const useList = <ItemType>(listRequestFn: any, options: OptionsType<ItemType> = 
   }
 }
 
-export default useList
+export { useList }
